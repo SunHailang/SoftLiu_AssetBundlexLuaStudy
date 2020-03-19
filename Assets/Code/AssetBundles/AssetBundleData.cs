@@ -5,9 +5,11 @@ using UnityEngine;
 
 namespace SoftLiu.AssetBundles
 {
-    [System.Serializable]
-    public class LevesBundle : Bundle
+    public class AssetBundleData : ScriptableObject
     {
-
+        [SerializeField]
+        private Bundle[] m_bundles;
     }
 }
+
+
