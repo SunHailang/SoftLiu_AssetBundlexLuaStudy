@@ -7,10 +7,16 @@ using SoftLiu.AssetBundles;
 
 public class CreateMiscEditor
 {
+    [MenuItem("SoftLiu/Misc/Editor/Create AssetBundleData")]
+    public static void CreateAssetBundleDataEditor()
+    {
+        CreateAsset<AssetBundleData>();
+    }
+
     [MenuItem("SoftLiu/Misc/Editor/Create Bundles")]
     public static void CreateBundlesEditor()
     {
-        CreateAsset<Bundles>();
+        CreateAsset<Bundle>();
     }
 
 
