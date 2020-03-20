@@ -824,11 +824,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Text (TMP)
       objectReference: {fileID: 0}
-    - target: {fileID: 2300719925694217321, guid: aecb61df408064d45963b24bc9891f71,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2300719925694217322, guid: aecb61df408064d45963b24bc9891f71,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -943,11 +938,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300719926629998860, guid: aecb61df408064d45963b24bc9891f71,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aecb61df408064d45963b24bc9891f71, type: 3}
