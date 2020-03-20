@@ -9,6 +9,8 @@ using UnityEngine.UI;
 public class SampleScene : MonoBehaviour
 {
     private Button m_btnLoad = null;
+    private Button m_btnGetRequest = null;
+    private Button m_btnPostRequest = null;
 
     private string m_url = "../Builds/AssetBundles/Android";
 
@@ -16,13 +18,52 @@ public class SampleScene : MonoBehaviour
     {
         m_url = Application.dataPath + "/" + m_url;
 
-        m_btnLoad = transform.Find("Button").GetComponent<Button>();
+        m_btnLoad = transform.Find("Grid/Button").GetComponent<Button>();
+        m_btnGetRequest = transform.Find("Grid/BtnGetRequest").GetComponent<Button>();
+        m_btnPostRequest = transform.Find("Grid/BtnPostRequest").GetComponent<Button>();
+
 
         m_btnLoad.onClick.AddListener(() =>
         {
             //StartCoroutine(Load());
             StartCoroutine(Download());
         });
+
+        m_btnGetRequest.onClick.AddListener(() =>
+        {
+            UnityRequestManager.Instance.DownloadHandlerBufferGet("http://www.badu.com/", (data, error) =>
+            {
+                if (string.IsNullOrEmpty(error))
+                {
+                    Debug.Log(data.Length);
+                }
+                else
+                {
+                    Debug.Log(error);
+                }
+            });
+
+            //StartCoroutine(GetRequest("http://localhost:8080/AssetBundles/"));
+            //StartCoroutine(GetRequest("http://www.badu.com/"));
+        });
+    }
+
+    IEnumerator GetRequest(string url)
+    {
+        UnityWebRequest request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        yield return request.SendWebRequest();
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.Log("Get Error: " + request.error);
+        }
+        else
+        {
+            if (request.isDone)
+            {
+                Debug.Log("Text: " + request.downloadHandler.text);
+            }
+        }
     }
 
     IEnumerator Download()
@@ -87,5 +128,10 @@ public class SampleScene : MonoBehaviour
 
         obj.transform.localPosition = new Vector3(550, 0, 0);
         AssetBundle.UnloadAllAssetBundles(false);
+    }
+
+    private void Update()
+    {
+        UnityRequestManager.Instance.OnUpdate();
     }
 }
