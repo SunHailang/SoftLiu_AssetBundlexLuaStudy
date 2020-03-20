@@ -6,6 +6,7 @@ using System.IO;
 using Force.Crc32;
 using System;
 using System.Diagnostics;
+using System.Text;
 
 public struct AssetBundleCRCFileInfo
 {
@@ -16,17 +17,18 @@ public struct AssetBundleCRCFileInfo
 
 public class AssetBundlesBuilder
 {
-
+    public static readonly string AssetBundlesPath = Application.dataPath + "/../Builds/AssetBundles";
 
     [MenuItem("SoftLiu/AssetBundles/Android/Build Production", false, 0)]
     public static void AssetBundles_BuildAndroidProd()
     {
         // 创建文件夹
-        string dir = Application.dataPath + "/../Builds/AssetBundles";
+        string dir = AssetBundlesPath + "/Android";
         if (!Directory.Exists(dir))
         {
             Directory.CreateDirectory(dir);
         }
+        CreateVersion(dir);
         // 构建
         // 参数1：路径
         // 参数2：压缩算法，none 默认
@@ -34,13 +36,26 @@ public class AssetBundlesBuilder
         BuildPipeline.BuildAssetBundles(dir, BuildAssetBundleOptions.None, BuildTarget.Android);
         UnityEngine.Debug.Log("资源打包完成");
     }
+
+    private static void CreateVersion(string path)
+    {
+        string verPath = path + "/version.txt";
+
+        using (FileStream sw = new FileStream(verPath, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+        {
+            string text = DateTime.Now.Ticks.ToString();
+            byte[] bs = Encoding.UTF8.GetBytes(text);
+            sw.Write(bs, 0, bs.Length);
+        }
+    }
+
     [MenuItem("SoftLiu/AssetBundles/Android/Build Development", false, 0)]
     public static void AssetBundles_BuildAndroidDev()
     {
 
     }
 
-    [MenuItem("SoftLiu/AssetBundles/ENABLE BUNDLES/Levels",priority =0)]
+    [MenuItem("SoftLiu/AssetBundles/ENABLE BUNDLES/Levels", priority = 0)]
     public static void EnableLevelsAssetBundles()
     {
         DisableSourceScenes();
@@ -58,7 +73,7 @@ public class AssetBundlesBuilder
             List<EditorBuildSettingsScene> list = new List<EditorBuildSettingsScene>();
             foreach (EditorBuildSettingsScene scene in list)
             {
-                if (path==scene.path)
+                if (path == scene.path)
                 {
                     scene.enabled = false;
                 }
