@@ -54,6 +54,50 @@ public class UnityRequestManager
         request.SendWebRequest();
     }
 
+    public void DownLoadAssetBundlesZip(string url, Action<byte[], string> finished, Dictionary<string, object> headers = null, Dictionary<string, object> cookies = null)
+    {
+        UnityWebRequest request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET);
+        if (headers != null)
+        {
+            foreach (KeyValuePair<string, object> header in headers)
+            {
+                request.SetRequestHeader(header.Key, header.Value.ToString());
+            }
+        }
+        if (cookies != null)
+        {
+            request.SetRequestHeader("Cookie", string.Format("session={0}", JsonUtility.ToJson(cookies)));
+        }
+
+        RequestHandler handler = new RequestHandler(request);
+        handler.onFinished = finished;
+        m_requestList.Add(handler);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SendWebRequest();
+    }
+
+    public void RequestVersionCheck(string url, Action<byte[], string> finished, Dictionary<string, object> headers = null, Dictionary<string, object> cookies = null)
+    {
+        UnityWebRequest request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET);
+        if (headers != null)
+        {
+            foreach (KeyValuePair<string, object> header in headers)
+            {
+                request.SetRequestHeader(header.Key, header.Value.ToString());
+            }
+        }
+        if (cookies != null)
+        {
+            request.SetRequestHeader("Cookie", string.Format("session={0}", JsonUtility.ToJson(cookies)));
+        }
+
+        RequestHandler handler = new RequestHandler(request);
+        handler.onFinished = finished;
+        m_requestList.Add(handler);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SendWebRequest();
+    }
+
 }
 
 public class RequestHandler
