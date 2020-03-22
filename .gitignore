@@ -11,9 +11,12 @@
 /Temp/
 obj/
 /Logs/
+/TestFolder/
 
 /xLua-master/
+/Assets/XLua/
 /Assets/XLua/Gen
+/Assets/XLua.meta
 /Assets/XLua/Gen.meta
 Assets/StreamingAssets.meta
 Assets/StreamingAssets/
