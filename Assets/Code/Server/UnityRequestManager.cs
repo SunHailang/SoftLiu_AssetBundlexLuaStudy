@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -98,6 +99,31 @@ public class UnityRequestManager
         request.SendWebRequest();
     }
 
+    public void RequestPost(string url, Action<byte[], string> finished, Dictionary<string, object> headers = null, Dictionary<string, object> cookies = null)
+    {
+        UnityWebRequest request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET);
+        if (headers != null)
+        {
+            foreach (KeyValuePair<string, object> header in headers)
+            {
+                request.SetRequestHeader(header.Key, header.Value.ToString());
+            }
+        }
+        if (cookies != null)
+        {
+            request.SetRequestHeader("Cookie", string.Format("session={0}", JsonUtility.ToJson(cookies)));
+        }
+
+        //WWWForm form = new WWWForm();
+        //byte[] buffer = Encoding.UTF8.GetBytes("Hello World!");
+        //form.AddBinaryData("Hello", buffer);
+
+        RequestHandler handler = new RequestHandler(request);
+        handler.onFinished = finished;
+        m_requestList.Add(handler);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SendWebRequest();
+    }
 }
 
 public class RequestHandler

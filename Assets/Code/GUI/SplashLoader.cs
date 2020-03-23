@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using Assets.Code.Utils.ZipData;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Text;
 using System.Threading;
 using TMPro;
@@ -18,7 +21,10 @@ public class SplashLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //string dir = Application.dataPath + "/../xLua";
+        string dir = Application.dataPath + "/../Tools/FilesSignature.exe";
+        FileInfo info = new FileInfo(dir);
+        Debug.Log(Path.GetExtension(dir));
+        Debug.Log(info.Extension);
         //FileUtils.DeleteDirectory(dir);
         //Debug.Log("Delete Complete.");
 
@@ -28,12 +34,12 @@ public class SplashLoader : MonoBehaviour
 
     public void BtnGetVersion_OnClick()
     {
-        string m_serverURL = "http://localhost:8080/AssetBundles/";
+        string m_serverURL = "http://localhost:8080/";
         Dictionary<string, object> headers = new Dictionary<string, object>();
         headers.Add("Content-Function", "AssetBundles");
         headers.Add("Content-GameID", "SoftLiu");
         headers.Add("Content-Platform", "Android");
-        headers.Add("Content-Version", "0.0.9");
+        headers.Add("Content-Version", "0.0.9.zip");
         headers.Add("Content-VersionCheck", "True");
         Dictionary<string, object> cookies = new Dictionary<string, object>();
         cookies.Add("TestGroup", "test");
@@ -51,10 +57,11 @@ public class SplashLoader : MonoBehaviour
                 }
                 else
                 {
-                    switch (checkData.m_type)
+                    switch (checkData.Type)
                     {
                         case VersionCheckType.UpdateType:
-                            bool result = UnityEditor.EditorUtility.DisplayDialog("更新", "更新到版本: " + checkData.m_version, "确定", "取消");
+                            string versionName = checkData.m_version.Substring(0, checkData.m_version.LastIndexOf('.'));
+                            bool result = UnityEditor.EditorUtility.DisplayDialog("更新", "更新到版本: " + versionName, "确定", "取消");
                             if (result)
                             {
                                 //UnityRequestManager.Instance.DownloadHandlerBufferGet
@@ -65,7 +72,7 @@ public class SplashLoader : MonoBehaviour
                                 }
                                 FileUtils.DeleteDirectory(path);
 
-                                StartCoroutine(DownAssetBundle(path, checkData.m_version, ".zip"));
+                                StartCoroutine(DownAssetBundle(path, checkData.m_version));
                             }
                             break;
                         case VersionCheckType.LatestType:
@@ -81,17 +88,17 @@ public class SplashLoader : MonoBehaviour
         }, headers, cookies);
     }
 
-    IEnumerator DownAssetBundle(string filePath, string fileName, string ext)
+    IEnumerator DownAssetBundle(string filePath, string version)
     {
         yield return null;
 
-        string m_serverURL = "http://localhost:8080/AssetBundles/";
+        string m_serverURL = "http://localhost:8080/";
         Dictionary<string, object> headers = new Dictionary<string, object>();
         headers.Add("Content-Function", "AssetBundles");
         headers.Add("Content-GameID", "SoftLiu");
         headers.Add("Content-Platform", "Android");
-        headers.Add("Content-Version", fileName);
-        headers.Add("Content-VersionCheck", "false");
+        headers.Add("Content-Version", version);
+        headers.Add("Content-VersionCheck", "False");
 
         using (UnityWebRequest request = new UnityWebRequest(m_serverURL, UnityWebRequest.kHttpVerbGET))
         {
@@ -103,7 +110,7 @@ public class SplashLoader : MonoBehaviour
                 }
             }
             request.timeout = 30;
-            string fileFullPath = filePath + "/" + fileName + ext;
+            string fileFullPath = filePath + "/" + version;
             request.downloadHandler = new DownloadHandlerFile(fileFullPath);
             request.SendWebRequest();
             if (request.isHttpError || request.isNetworkError)
@@ -159,54 +166,139 @@ public class SplashLoader : MonoBehaviour
         }
     }
 
-    public void BtnUnZip_OnClick()
+    public void BtnZip_OnClick()
     {
-        m_process = 0;
-        //StartCoroutine(UnZipFile());
-        UnZipFileThrad();
-        try
-        {
-
-            Debug.Log("process : " + m_process);
-        }
-        catch (System.Exception e)
-        {
-            Debug.Log("BtnUnZip_OnClick : " + e.Message);
-        }
-
+        StartCoroutine(ZipFile());
     }
 
-    private float m_process = 0;
-
-    private void UnZipFileThrad()
+    IEnumerator ZipFile()
     {
-        string fileDir = Application.dataPath + "/../TestFolder";
-        string target = fileDir + "/TestFolder.zip";
+        string path = Application.dataPath + "/../xLua";
+        ZipHandlerData zipData = new ZipHandlerData();
 
-        Thread th = new Thread(() =>
+        SharpZipUtility.ZipFie(path, path + "/../xLua.zip", zipData);
+
+        while (!zipData.isDone && !zipData.isError)
         {
-            bool result = SharpZipUtility.UnZipFile(target, fileDir);
-            Debug.Log("Result : " + result);
-        });
-        th.Start();
-    }
-
-    IEnumerator UnZipFile()
-    {
-        
-
-        yield return null;
+            m_sliderProcess.value = zipData.progress;
+            m_textProcess.text = string.Format("{0}%", Mathf.FloorToInt(zipData.progress * 100));
+            yield return null;
+        }
 
         m_sliderProcess.value = 1;
-        m_textProcess.SetText(string.Format("{0}%", 100));
+        m_textProcess.text = string.Format("{0}%", 100);
+
+        if (!zipData.isError)
+        {
+            Debug.Log(string.Format("Zip Complete: {0} , {1} , {2}", zipData.progress, zipData.fileCount, zipData.fileCurrentCount));
+        }
+        else
+        {
+            Debug.Log("Error: " + zipData.errorText);
+        }
+    }
+
+    public void BtnUnZip_OnClick()
+    {
+        StartCoroutine(UnZipFile());
+    }
+    IEnumerator UnZipFile()
+    {
+        string fileDir = Application.dataPath + "/../xLua";
+        string target = Application.dataPath + "/../xLua.zip";
+        ZipHandlerData zipData = new ZipHandlerData();
+
+        SharpZipUtility.UnZipFile(target, fileDir, zipData);
+
+        while (!zipData.isDone && !zipData.isError)
+        {
+            m_sliderProcess.value = zipData.progress;
+            m_textProcess.text = string.Format("{0}%", Mathf.FloorToInt(zipData.progress * 100));
+            yield return null;
+        }
+
+        if (!zipData.isError)
+        {
+            m_sliderProcess.value = 1;
+            m_textProcess.text = string.Format("{0}%", 100);
+            Debug.Log(string.Format("UnZip Complete: {0} , {1} , {2}", zipData.progress, zipData.fileCount, zipData.fileCurrentCount));
+        }
+        else
+        {
+            Debug.Log("Error: " + zipData.errorText);
+        }
+    }
+
+    public void BtnPOST_OnClick()
+    {
+        string m_serverURL = "http://localhost:8080/";
+        Dictionary<string, object> headers = new Dictionary<string, object>();
+        Dictionary<string, object> formDic = new Dictionary<string, object>();
+        formDic.Add("One", "Hello World.");
+        formDic.Add("Two", "Hello Chine.");
+
+        StringBuilder sb = new StringBuilder();
+        int index = 0;
+        foreach (KeyValuePair<string, object> form in formDic)
+        {
+            sb.Append(string.Format("{0}={1}", form.Key, form.Value));
+            if (index < formDic.Count - 1)
+            {
+                sb.Append('&');
+            }
+            index++;
+        }
+        byte[] postData = Encoding.UTF8.GetBytes(sb.ToString());
+        StartCoroutine(PostRequest(m_serverURL, postData));
+
+        HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(m_serverURL);
+        request.Method = "POST";
+        request.Timeout = 15;
+        request.ContentType = "application/json;charset=UTF-8";
+        using (StreamWriter st = new StreamWriter(request.GetRequestStream(), Encoding.GetEncoding("utf-8")))
+        {
+            st.WriteLine(sb.ToString());
+            st.Flush();
+        }
+        using (var response = request.GetResponse())
+        {
+            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+            {
+                string data = reader.ReadToEnd();
+                Debug.Log("Post Callback: " + data);
+            }
+        }
+    }
+
+    IEnumerator PostRequest(string url, byte[] postData)
+    {
+        using (UnityWebRequest request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbPOST))
+        {
+            request.timeout = 15;
+            request.uploadHandler = new UploadHandlerRaw(postData);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SendWebRequest();
+            while (request.uploadProgress < 1)
+            {
+                Debug.Log("uploadProgress: " + request.uploadProgress);
+                yield return null;
+            }
+            Debug.Log("upload finished");
+            while (!request.isDone)
+            {
+
+            }
+            string down = request.downloadHandler.text;
+            Debug.Log(down);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        m_sliderProcess.value = m_process;
-        m_textProcess.SetText(string.Format("{0}%", Mathf.FloorToInt(m_process * 100)));
+        //m_sliderProcess.value = m_process;
+        //m_textProcess.SetText(string.Format("{0}%", Mathf.FloorToInt(m_process * 100)));
 
 
         UnityRequestManager.Instance.OnUpdate();
