@@ -40,7 +40,7 @@ namespace Assets.Code.Utils.ZipData
                 {
                     return 0;
                 }
-                return (float)fileCurrentCount / (float)fileCount;
+                return (fileCurrentCount * 1.0f / fileCount);
             }
         }
 
