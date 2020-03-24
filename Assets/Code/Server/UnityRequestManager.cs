@@ -139,26 +139,35 @@ public class RequestHandler
 
     public bool IsProcessDone()
     {
-        if (m_request == null)
+        try
         {
-            onFinished(null, "Request is null.");
-            return true;
-        }
-        if (m_request.isHttpError || m_request.isNetworkError)
-        {
-            onFinished(null, m_request.error);
-            return true;
-        }
-        if (m_request.isDone)
-        {
-            if (m_request.downloadHandler == null)
+            if (m_request == null)
             {
-                onFinished(null, "Request downloadHandler is null.");
+                onFinished(null, "Request is null.");
                 return true;
             }
-            onFinished(m_request.downloadHandler.data, null);
+            if (m_request.isHttpError || m_request.isNetworkError)
+            {
+                onFinished(null, m_request.error);
+                return true;
+            }
+            if (m_request.isDone)
+            {
+                if (m_request.downloadHandler == null)
+                {
+                    onFinished(null, "Request downloadHandler is null.");
+                    return true;
+                }
+                onFinished(m_request.downloadHandler.data, null);
+                return true;
+            }
+            return false;
+        }
+        catch (Exception error)
+        {
+            Debug.LogError(string.Format("URL: {0} , Error: ", m_request.url, error.Message));
             return true;
         }
-        return false;
+
     }
 }

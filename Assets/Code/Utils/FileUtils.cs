@@ -31,4 +31,28 @@ public static class FileUtils
         }
     }
 
+
+    public static string GetContentDispositionByName(string disposition, string name)
+    {
+        string result = null;
+        if (!string.IsNullOrEmpty(disposition) && !string.IsNullOrEmpty(name))
+        {
+            string[] disArray = disposition.Split(';');
+            for (int i = 0; i < disArray.Length; i++)
+            {
+                string[] keyvalues = disArray[i].Split('=');
+                if (keyvalues.Length == 2)
+                {
+                    string key = keyvalues[0].Trim();
+                    string value = keyvalues[1].Trim();
+                    if (key.Equals(name))
+                    {
+                        result = value;
+                        break;
+                    }
+                }
+            }
+        }
+        return result;
+    }
 }
