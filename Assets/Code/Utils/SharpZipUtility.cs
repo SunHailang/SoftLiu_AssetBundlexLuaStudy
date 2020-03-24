@@ -34,6 +34,7 @@ public static class SharpZipUtility
         Task.Factory.StartNew((data) =>
         {
             ZipHandlerData zip = (ZipHandlerData)data;
+
             using (ZipOutputStream outStream = new ZipOutputStream(File.Create(strZip)))
             {
                 outStream.SetLevel(6);
@@ -74,7 +75,8 @@ public static class SharpZipUtility
                         //通过字符流，读取文件
                         fs.Read(buffer, 0, buffer.Length);
                         //得到目录下的文件（比如:D:\Debug1\test）,test
-                        string tempfile = file.Substring(staticFile.LastIndexOf("\\") + 1);
+                        int index = staticFile.TrimEnd('/', '\\').LastIndexOfAny(new char[] { '/', '\\' });
+                        string tempfile = file.Substring(index + 1);
                         ZipEntry entry = new ZipEntry(tempfile);
                         entry.DateTime = DateTime.Now;
                         entry.Size = fs.Length;
@@ -117,6 +119,7 @@ public static class SharpZipUtility
                 }
                 else
                 {
+                    //string filePath = Path.GetFileNameWithoutExtension(TargetFile);
                     if (!Directory.Exists(fileDir))
                     {
                         Directory.CreateDirectory(fileDir);
@@ -125,12 +128,11 @@ public static class SharpZipUtility
                     using (ZipInputStream inputstream = new ZipInputStream(File.OpenRead(TargetFile.Trim())))
                     {
                         ZipEntry entry;
-
-                        //while ((entry = inputstream.GetNextEntry()) != null)
-                        //{
-                        //    if (!string.IsNullOrEmpty(Path.GetFileName(entry.Name)))
-                        //        zip.fileCount++;
-                        //}
+                        using (ZipFile zipFile = new ZipFile(TargetFile.Trim()))
+                        {
+                            Debug.Log(string.Format("ZipFile Count: {0}", zipFile.Count));
+                            zip.fileCount = zipFile.Count;
+                        }
 
                         while ((entry = inputstream.GetNextEntry()) != null)
                         {

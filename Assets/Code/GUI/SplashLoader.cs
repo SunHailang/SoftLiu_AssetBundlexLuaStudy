@@ -21,12 +21,15 @@ public class SplashLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string dir = Application.dataPath + "/../Tools/FilesSignature.exe";
-        FileInfo info = new FileInfo(dir);
-        Debug.Log(Path.GetExtension(dir));
-        Debug.Log(info.Extension);
+        //string dir = Application.dataPath + "/../Tools/FilesSignature.exe";
+        //FileInfo info = new FileInfo(dir);
+        //Debug.Log(Path.GetExtension(dir));
+        //Debug.Log(info.Extension);
         //FileUtils.DeleteDirectory(dir);
         //Debug.Log("Delete Complete.");
+
+        Debug.Log(Application.persistentDataPath);
+
 
         m_sliderProcess.value = 0;
         m_textProcess.SetText(string.Format("{0}%", 0));
@@ -34,7 +37,7 @@ public class SplashLoader : MonoBehaviour
 
     public void BtnGetVersion_OnClick()
     {
-        string m_serverURL = "http://localhost:8080/";
+        string m_serverURL = "http://localhost:8080/AssetBundles";
         Dictionary<string, object> headers = new Dictionary<string, object>();
         headers.Add("Content-Function", "AssetBundles");
         headers.Add("Content-GameID", "SoftLiu");
@@ -92,7 +95,7 @@ public class SplashLoader : MonoBehaviour
     {
         yield return null;
 
-        string m_serverURL = "http://localhost:8080/";
+        string m_serverURL = "http://localhost:8080/AssetBundles";
         Dictionary<string, object> headers = new Dictionary<string, object>();
         headers.Add("Content-Function", "AssetBundles");
         headers.Add("Content-GameID", "SoftLiu");
@@ -173,10 +176,10 @@ public class SplashLoader : MonoBehaviour
 
     IEnumerator ZipFile()
     {
-        string path = Application.dataPath + "/../xLua";
+        string path = Application.dataPath + "/../Builds";
         ZipHandlerData zipData = new ZipHandlerData();
 
-        SharpZipUtility.ZipFie(path, path + "/../xLua.zip", zipData);
+        SharpZipUtility.ZipFie(path + "/xLua", path + "/xLua.zip", zipData);
 
         while (!zipData.isDone && !zipData.isError)
         {
@@ -204,8 +207,8 @@ public class SplashLoader : MonoBehaviour
     }
     IEnumerator UnZipFile()
     {
-        string fileDir = Application.dataPath + "/../xLua";
-        string target = Application.dataPath + "/../xLua.zip";
+        string fileDir = Application.dataPath + "/../Builds/";
+        string target = Application.dataPath + "/../Builds/xLua.zip";
         ZipHandlerData zipData = new ZipHandlerData();
 
         SharpZipUtility.UnZipFile(target, fileDir, zipData);
@@ -293,6 +296,72 @@ public class SplashLoader : MonoBehaviour
         }
     }
 
+    public void BtnDownloadImage_OnClick()
+    {
+        StartCoroutine(DownLoadImage());
+    }
+    IEnumerator DownLoadImage()
+    {
+        string url = "http://localhost:8080/favicon.ico";
+        using (UnityWebRequest request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET))
+        {
+            request.downloadHandler = new DownloadHandlerTexture();
+            request.SendWebRequest();
+            if (request.isHttpError || request.isNetworkError)
+            {
+                Debug.Log("Error: " + request.error);
+            }
+            else
+            {
+                while (!request.isDone)
+                {
+                    m_sliderProcess.value = request.downloadProgress;
+                    m_textProcess.text = string.Format("{0}%", Mathf.FloorToInt(request.downloadProgress * 100));
+                    yield return null;
+                }
+                m_sliderProcess.value = 1;
+                m_textProcess.text = string.Format("{0}%", 100);
+
+                Dictionary<string, string> responseHanders = request.GetResponseHeaders();
+                if (responseHanders != null)
+                {
+                    if (responseHanders.ContainsKey("Content-Length"))
+                    {
+                        long length = 0;
+                        long.TryParse(responseHanders["Content-Length"], out length);
+                        if (request.downloadHandler.data.Length != length)
+                        {
+                            Debug.Log("接收数据大小出错.");
+                        }
+                        else
+                        {
+                            Debug.Log("接收数据大小完整.");
+                        }
+                    }
+                    if (responseHanders.ContainsKey("Content-disposition"))
+                    {
+                        string dis = responseHanders["Content-disposition"];
+                        string value = FileUtils.GetContentDispositionByName(dis, "filename");
+                        if (!string.IsNullOrEmpty(value))
+                        {
+                            File.WriteAllBytes(Application.dataPath + "/../Builds/" + value, request.downloadHandler.data);
+                            Debug.Log("Texture Finish.");
+                        }
+                        else
+                        {
+                            Debug.Log("Download Error.");
+                            Debug.Log(Encoding.UTF8.GetString(request.downloadHandler.data));
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("Download Error.");
+                        Debug.Log(Encoding.UTF8.GetString(request.downloadHandler.data));
+                    }
+                }
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {
