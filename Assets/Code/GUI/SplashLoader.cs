@@ -10,6 +10,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using TFramework.Utils;
+using System.Security.Cryptography;
+using System.Xml.Serialization;
 
 public class SplashLoader : MonoBehaviour
 {
@@ -27,6 +30,8 @@ public class SplashLoader : MonoBehaviour
         //Debug.Log(info.Extension);
         //FileUtils.DeleteDirectory(dir);
         //Debug.Log("Delete Complete.");
+
+
 
         Debug.Log(Application.persistentDataPath);
 
@@ -64,6 +69,7 @@ public class SplashLoader : MonoBehaviour
                     {
                         case VersionCheckType.UpdateType:
                             string versionName = checkData.m_version.Substring(0, checkData.m_version.LastIndexOf('.'));
+#if UNITY_ERITOR
                             bool result = UnityEditor.EditorUtility.DisplayDialog("更新", "更新到版本: " + versionName, "确定", "取消");
                             if (result)
                             {
@@ -77,9 +83,12 @@ public class SplashLoader : MonoBehaviour
 
                                 StartCoroutine(DownAssetBundle(path, checkData.m_version));
                             }
+#endif
                             break;
                         case VersionCheckType.LatestType:
+#if UNITY_EDITOR
                             UnityEditor.EditorUtility.DisplayDialog("更新", "已经是最新版本了", "确定");
+#endif
                             break;
                     }
                 }
@@ -362,10 +371,40 @@ public class SplashLoader : MonoBehaviour
             }
         }
     }
+
+    public void BtnGetRSAKey_OnClick()
+    {
+        string path = Application.dataPath + "/../Builds";
+        bool result = EncryptUtils.CreateRSAKey(path, "softliu");
+        Debug.Log("CreateRSAKey Result: " + result);
+    }
+
+    byte[] strData = null;
+
+    public void BtnEncryptRSA_OnClick()
+    {
+        byte[] data = Encoding.UTF8.GetBytes("Hello World");
+
+        strData = EncryptUtils.EncryptRSA(data, Application.dataPath + "/../Builds/softliu_rsa.pub");
+        Debug.Log(Encoding.UTF8.GetString(strData));
+    }
+
+    public void BtnDecryptRSA_OnClick()
+    {
+        byte[] eData = EncryptUtils.DecryptRSA(strData, Application.dataPath + "/../Builds/softliu_rsa");
+        string str = Encoding.UTF8.GetString(eData);
+        Debug.Log("BtnDecryptRSA_OnClick : " + str);
+    }
+
     // Update is called once per frame
     void Update()
     {
-
+        //if (time >= 5)
+        //{
+        //    time = 0;
+        //    Debug.Log(Time.realtimeSinceStartup);
+        //}
+        //time += Time.deltaTime;
         //m_sliderProcess.value = m_process;
         //m_textProcess.SetText(string.Format("{0}%", Mathf.FloorToInt(m_process * 100)));
 
