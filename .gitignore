@@ -11,6 +11,9 @@
 obj/
 /Logs/
 /TestFolder/
+/Assets/CodeMonkey/
+/Assets/CodeMonkey.meta
+/Tools/AStar/
 
 /xLua-master/
 /Assets/XLua/
