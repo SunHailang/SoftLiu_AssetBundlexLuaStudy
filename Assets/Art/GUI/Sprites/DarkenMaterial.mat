@@ -68,10 +68,10 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OtherAlphValue: 0.801
+    - _OtherAlphValue: 0.5
     - _Parallax: 0.02
     - _RADIUSBUCE: 1.5
-    - _RADIUSBUCEX: 0.643
+    - _RADIUSBUCEX: 0.439
     - _RADIUSBUCEY: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
