@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MBoyTesting
+  m_Name: MBoyPlayer
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -111,13 +111,13 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102322467423777646}
-    m_Position: {x: 200, y: 0, z: 0}
+    m_Position: {x: 240, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102634148045171284}
-    m_Position: {x: 235, y: 65, z: 0}
+    m_Position: {x: 240, y: 132, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102667561488097348}
-    m_Position: {x: 270, y: 130, z: 0}
+    m_Position: {x: 240, y: 204, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
