@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerSpriteLibraryAsset
   m_EditorClassIdentifier: 
   m_Labels:
-  - m_Name: Category
-    m_Hash: -29721705
+  - m_Name: weapon
+    m_Hash: 1764992998
     m_CategoryList:
     - m_Name: nomal
       m_Hash: -74910078
@@ -22,3 +22,48 @@ MonoBehaviour:
     - m_Name: bignomal
       m_Hash: -1046917148
       m_Sprite: {fileID: 21300004, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
+  - m_Name: face
+    m_Hash: 85228391
+    m_CategoryList:
+    - m_Name: nomal
+      m_Hash: -74910078
+      m_Sprite: {fileID: 21300006, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
+    - m_Name: bignomal
+      m_Hash: -1046917148
+      m_Sprite: {fileID: 21300010, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
+  - m_Name: arm_left
+    m_Hash: 1470022308
+    m_CategoryList:
+    - m_Name: nomal
+      m_Hash: -74910078
+      m_Sprite: {fileID: 21300012, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
+    - m_Name: bignomal
+      m_Hash: -1046917148
+      m_Sprite: {fileID: 21300002, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
+  - m_Name: arm_right
+    m_Hash: 641008298
+    m_CategoryList:
+    - m_Name: nomal
+      m_Hash: -74910078
+      m_Sprite: {fileID: 21300028, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
+    - m_Name: bignomal
+      m_Hash: -1046917148
+      m_Sprite: {fileID: 21300020, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
+  - m_Name: leg_left
+    m_Hash: -814131629
+    m_CategoryList:
+    - m_Name: nomal
+      m_Hash: -74910078
+      m_Sprite: {fileID: 21300020, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
+    - m_Name: bignomal
+      m_Hash: -1046917148
+      m_Sprite: {fileID: 21300024, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
+  - m_Name: leg_right
+    m_Hash: 91521665
+    m_CategoryList:
+    - m_Name: nomal
+      m_Hash: -74910078
+      m_Sprite: {fileID: 21300024, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
+    - m_Name: bignomal
+      m_Hash: -1046917148
+      m_Sprite: {fileID: 21300028, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
