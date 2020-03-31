@@ -1,125 +1,360 @@
 fileFormatVersion: 2
 guid: c911e53817e378b42a6c8c8cb134dc47
 ScriptedImporter:
-  fileIDToRecycleName:
-    100000: MBoy_GO/MBoy_GO
-    100002: MBoy_GO/MBoy_GO/arm_l
-    100004: MBoy_GO/MBoy_GO/arm_r
-    100006: MBoy_GO/MBoy_GO/body
-    100008: MBoy_GO/MBoy_GO/foot_l
-    100010: MBoy_GO/MBoy_GO/foot_r
-    100012: MBoy_GO/MBoy_GO/hair
-    100014: MBoy_GO/MBoy_GO/hand_l
-    100016: MBoy_GO/MBoy_GO/hand_r
-    100018: MBoy_GO/MBoy_GO/head_0
-    100020: MBoy_GO/MBoy_GO/head_1
-    100022: MBoy_GO/MBoy_GO/head_2
-    100024: MBoy_GO/MBoy_GO/item
-    100026: MBoy_GO/MBoy_GO/leg_l
-    100028: MBoy_GO/MBoy_GO/leg_r
-    100030: MBoy_GO/MBoy_GO/Weapon_stick
-    100032: MBoy_GO/MBoy_GO/bone_1
-    100034: MBoy_GO/MBoy_GO/bone_1/bone_2
-    100036: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3
-    100038: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_13
-    100040: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_14
-    100042: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_15
-    100044: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_16
-    100046: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_17
-    100048: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_18
-    100050: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8
-    100052: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/bone_9
-    100054: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/bone_9/bone_10
-    100056: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_11
-    100058: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_11/bone_12
-    100060: MBoy_GO/MBoy_GO/bone_1/bone_4
-    100062: MBoy_GO/MBoy_GO/bone_1/bone_4/bone_5
-    100064: MBoy_GO/MBoy_GO/bone_1/bone_6
-    100066: MBoy_GO/MBoy_GO/bone_1/bone_6/bone_7
-    100068: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/bone_9/bone_10/bone_19
-    400000: MBoy_GO/MBoy_GO/Transform
-    400002: MBoy_GO/MBoy_GO/arm_l/Transform
-    400004: MBoy_GO/MBoy_GO/arm_r/Transform
-    400006: MBoy_GO/MBoy_GO/body/Transform
-    400008: MBoy_GO/MBoy_GO/foot_l/Transform
-    400010: MBoy_GO/MBoy_GO/foot_r/Transform
-    400012: MBoy_GO/MBoy_GO/hair/Transform
-    400014: MBoy_GO/MBoy_GO/hand_l/Transform
-    400016: MBoy_GO/MBoy_GO/hand_r/Transform
-    400018: MBoy_GO/MBoy_GO/head_0/Transform
-    400020: MBoy_GO/MBoy_GO/head_1/Transform
-    400022: MBoy_GO/MBoy_GO/head_2/Transform
-    400024: MBoy_GO/MBoy_GO/item/Transform
-    400026: MBoy_GO/MBoy_GO/leg_l/Transform
-    400028: MBoy_GO/MBoy_GO/leg_r/Transform
-    400030: MBoy_GO/MBoy_GO/Weapon_stick/Transform
-    400032: MBoy_GO/MBoy_GO/bone_1/Transform
-    400034: MBoy_GO/MBoy_GO/bone_1/bone_2/Transform
-    400036: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/Transform
-    400038: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_13/Transform
-    400040: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_14/Transform
-    400042: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_15/Transform
-    400044: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_16/Transform
-    400046: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_17/Transform
-    400048: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_18/Transform
-    400050: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/Transform
-    400052: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/bone_9/Transform
-    400054: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/bone_9/bone_10/Transform
-    400056: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_11/Transform
-    400058: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_11/bone_12/Transform
-    400060: MBoy_GO/MBoy_GO/bone_1/bone_4/Transform
-    400062: MBoy_GO/MBoy_GO/bone_1/bone_4/bone_5/Transform
-    400064: MBoy_GO/MBoy_GO/bone_1/bone_6/Transform
-    400066: MBoy_GO/MBoy_GO/bone_1/bone_6/bone_7/Transform
-    400068: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/bone_9/bone_10/bone_19/Transform
-    2800000: MBoy
-    11400000: MBoy_GO/MBoy_GO/arm_l/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400002: MBoy_GO/MBoy_GO/arm_r/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400004: MBoy_GO/MBoy_GO/body/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400006: MBoy_GO/MBoy_GO/foot_l/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400008: MBoy_GO/MBoy_GO/foot_r/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400010: MBoy_GO/MBoy_GO/hair/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400012: MBoy_GO/MBoy_GO/hand_l/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400014: MBoy_GO/MBoy_GO/hand_r/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400016: MBoy_GO/MBoy_GO/head_0/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400018: MBoy_GO/MBoy_GO/head_1/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400020: MBoy_GO/MBoy_GO/head_2/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400022: MBoy_GO/MBoy_GO/item/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400024: MBoy_GO/MBoy_GO/leg_l/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400026: MBoy_GO/MBoy_GO/leg_r/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400028: MBoy_GO/MBoy_GO/Weapon_stick/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    21200000: MBoy_GO/MBoy_GO/arm_l/SpriteRenderer
-    21200002: MBoy_GO/MBoy_GO/arm_r/SpriteRenderer
-    21200004: MBoy_GO/MBoy_GO/body/SpriteRenderer
-    21200006: MBoy_GO/MBoy_GO/foot_l/SpriteRenderer
-    21200008: MBoy_GO/MBoy_GO/foot_r/SpriteRenderer
-    21200010: MBoy_GO/MBoy_GO/hair/SpriteRenderer
-    21200012: MBoy_GO/MBoy_GO/hand_l/SpriteRenderer
-    21200014: MBoy_GO/MBoy_GO/hand_r/SpriteRenderer
-    21200016: MBoy_GO/MBoy_GO/head_0/SpriteRenderer
-    21200018: MBoy_GO/MBoy_GO/head_1/SpriteRenderer
-    21200020: MBoy_GO/MBoy_GO/head_2/SpriteRenderer
-    21200022: MBoy_GO/MBoy_GO/item/SpriteRenderer
-    21200024: MBoy_GO/MBoy_GO/leg_l/SpriteRenderer
-    21200026: MBoy_GO/MBoy_GO/leg_r/SpriteRenderer
-    21200028: MBoy_GO/MBoy_GO/Weapon_stick/SpriteRenderer
-    21300000: 02df4cf96db89a04d81b83530b390475
-    21300002: 1d6e713765c77f443abb15aea1d3eb99
-    21300004: 1d4a7b220eb5f4443927bca38b823077
-    21300006: dc68eaaa070a2e3448907b0836b25c35
-    21300008: 9e7a89b9b8f88b843a5bcfeea429629b
-    21300010: c8a528a7aef58a04c89791d9e837500c
-    21300012: 8f3785bdf3cc17a4ca10d2b6c19eb158
-    21300014: 6b312a2bd5de3fa4db9bd6c42c836fcf
-    21300016: 96e9b1c1a284b7949a1fd6a713ded3f6
-    21300018: 6bb8a93d43ae8b041985be49ad166695
-    21300020: b0f6f72a471c70e4a8af25dfdafef44b
-    21300022: c3c5e9f03cb5cf54ca1d0e606338e466
-    21300024: b492580905a748242b8e028e6c5a06c3
-    21300026: 3ea0379463d58a54dbee9edcbb20274c
-    21300028: 392fc4ec63d675c48a3abe58be4842ce
-    100100000: MBoy_GO
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: MBoy_GO/MBoy_GO
+  - first:
+      1: 100002
+    second: MBoy_GO/MBoy_GO/arm_l
+  - first:
+      1: 100004
+    second: MBoy_GO/MBoy_GO/arm_r
+  - first:
+      1: 100006
+    second: MBoy_GO/MBoy_GO/body
+  - first:
+      1: 100008
+    second: MBoy_GO/MBoy_GO/foot_l
+  - first:
+      1: 100010
+    second: MBoy_GO/MBoy_GO/foot_r
+  - first:
+      1: 100012
+    second: MBoy_GO/MBoy_GO/hair
+  - first:
+      1: 100014
+    second: MBoy_GO/MBoy_GO/hand_l
+  - first:
+      1: 100016
+    second: MBoy_GO/MBoy_GO/hand_r
+  - first:
+      1: 100018
+    second: MBoy_GO/MBoy_GO/head_0
+  - first:
+      1: 100020
+    second: MBoy_GO/MBoy_GO/head_1
+  - first:
+      1: 100022
+    second: MBoy_GO/MBoy_GO/head_2
+  - first:
+      1: 100024
+    second: MBoy_GO/MBoy_GO/item
+  - first:
+      1: 100026
+    second: MBoy_GO/MBoy_GO/leg_l
+  - first:
+      1: 100028
+    second: MBoy_GO/MBoy_GO/leg_r
+  - first:
+      1: 100030
+    second: MBoy_GO/MBoy_GO/Weapon_stick
+  - first:
+      1: 100032
+    second: MBoy_GO/MBoy_GO/bone_1
+  - first:
+      1: 100034
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2
+  - first:
+      1: 100036
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3
+  - first:
+      1: 100038
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_13
+  - first:
+      1: 100040
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_14
+  - first:
+      1: 100042
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_15
+  - first:
+      1: 100044
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_16
+  - first:
+      1: 100046
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_17
+  - first:
+      1: 100048
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_18
+  - first:
+      1: 100050
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8
+  - first:
+      1: 100052
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/bone_9
+  - first:
+      1: 100054
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/bone_9/bone_10
+  - first:
+      1: 100056
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_11
+  - first:
+      1: 100058
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_11/bone_12
+  - first:
+      1: 100060
+    second: MBoy_GO/MBoy_GO/bone_1/bone_4
+  - first:
+      1: 100062
+    second: MBoy_GO/MBoy_GO/bone_1/bone_4/bone_5
+  - first:
+      1: 100064
+    second: MBoy_GO/MBoy_GO/bone_1/bone_6
+  - first:
+      1: 100066
+    second: MBoy_GO/MBoy_GO/bone_1/bone_6/bone_7
+  - first:
+      1: 100068
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/bone_9/bone_10/bone_19
+  - first:
+      4: 400000
+    second: MBoy_GO/MBoy_GO/Transform
+  - first:
+      4: 400002
+    second: MBoy_GO/MBoy_GO/arm_l/Transform
+  - first:
+      4: 400004
+    second: MBoy_GO/MBoy_GO/arm_r/Transform
+  - first:
+      4: 400006
+    second: MBoy_GO/MBoy_GO/body/Transform
+  - first:
+      4: 400008
+    second: MBoy_GO/MBoy_GO/foot_l/Transform
+  - first:
+      4: 400010
+    second: MBoy_GO/MBoy_GO/foot_r/Transform
+  - first:
+      4: 400012
+    second: MBoy_GO/MBoy_GO/hair/Transform
+  - first:
+      4: 400014
+    second: MBoy_GO/MBoy_GO/hand_l/Transform
+  - first:
+      4: 400016
+    second: MBoy_GO/MBoy_GO/hand_r/Transform
+  - first:
+      4: 400018
+    second: MBoy_GO/MBoy_GO/head_0/Transform
+  - first:
+      4: 400020
+    second: MBoy_GO/MBoy_GO/head_1/Transform
+  - first:
+      4: 400022
+    second: MBoy_GO/MBoy_GO/head_2/Transform
+  - first:
+      4: 400024
+    second: MBoy_GO/MBoy_GO/item/Transform
+  - first:
+      4: 400026
+    second: MBoy_GO/MBoy_GO/leg_l/Transform
+  - first:
+      4: 400028
+    second: MBoy_GO/MBoy_GO/leg_r/Transform
+  - first:
+      4: 400030
+    second: MBoy_GO/MBoy_GO/Weapon_stick/Transform
+  - first:
+      4: 400032
+    second: MBoy_GO/MBoy_GO/bone_1/Transform
+  - first:
+      4: 400034
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/Transform
+  - first:
+      4: 400036
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/Transform
+  - first:
+      4: 400038
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_13/Transform
+  - first:
+      4: 400040
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_14/Transform
+  - first:
+      4: 400042
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_15/Transform
+  - first:
+      4: 400044
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_16/Transform
+  - first:
+      4: 400046
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_17/Transform
+  - first:
+      4: 400048
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_3/bone_18/Transform
+  - first:
+      4: 400050
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/Transform
+  - first:
+      4: 400052
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/bone_9/Transform
+  - first:
+      4: 400054
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/bone_9/bone_10/Transform
+  - first:
+      4: 400056
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_11/Transform
+  - first:
+      4: 400058
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_11/bone_12/Transform
+  - first:
+      4: 400060
+    second: MBoy_GO/MBoy_GO/bone_1/bone_4/Transform
+  - first:
+      4: 400062
+    second: MBoy_GO/MBoy_GO/bone_1/bone_4/bone_5/Transform
+  - first:
+      4: 400064
+    second: MBoy_GO/MBoy_GO/bone_1/bone_6/Transform
+  - first:
+      4: 400066
+    second: MBoy_GO/MBoy_GO/bone_1/bone_6/bone_7/Transform
+  - first:
+      4: 400068
+    second: MBoy_GO/MBoy_GO/bone_1/bone_2/bone_8/bone_9/bone_10/bone_19/Transform
+  - first:
+      28: 2800000
+    second: MBoy
+  - first:
+      114: 11400000
+    second: MBoy_GO/MBoy_GO/arm_l/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400002
+    second: MBoy_GO/MBoy_GO/arm_r/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400004
+    second: MBoy_GO/MBoy_GO/body/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400006
+    second: MBoy_GO/MBoy_GO/foot_l/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400008
+    second: MBoy_GO/MBoy_GO/foot_r/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400010
+    second: MBoy_GO/MBoy_GO/hair/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400012
+    second: MBoy_GO/MBoy_GO/hand_l/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400014
+    second: MBoy_GO/MBoy_GO/hand_r/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400016
+    second: MBoy_GO/MBoy_GO/head_0/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400018
+    second: MBoy_GO/MBoy_GO/head_1/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400020
+    second: MBoy_GO/MBoy_GO/head_2/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400022
+    second: MBoy_GO/MBoy_GO/item/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400024
+    second: MBoy_GO/MBoy_GO/leg_l/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400026
+    second: MBoy_GO/MBoy_GO/leg_r/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400028
+    second: MBoy_GO/MBoy_GO/Weapon_stick/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      212: 21200000
+    second: MBoy_GO/MBoy_GO/arm_l/SpriteRenderer
+  - first:
+      212: 21200002
+    second: MBoy_GO/MBoy_GO/arm_r/SpriteRenderer
+  - first:
+      212: 21200004
+    second: MBoy_GO/MBoy_GO/body/SpriteRenderer
+  - first:
+      212: 21200006
+    second: MBoy_GO/MBoy_GO/foot_l/SpriteRenderer
+  - first:
+      212: 21200008
+    second: MBoy_GO/MBoy_GO/foot_r/SpriteRenderer
+  - first:
+      212: 21200010
+    second: MBoy_GO/MBoy_GO/hair/SpriteRenderer
+  - first:
+      212: 21200012
+    second: MBoy_GO/MBoy_GO/hand_l/SpriteRenderer
+  - first:
+      212: 21200014
+    second: MBoy_GO/MBoy_GO/hand_r/SpriteRenderer
+  - first:
+      212: 21200016
+    second: MBoy_GO/MBoy_GO/head_0/SpriteRenderer
+  - first:
+      212: 21200018
+    second: MBoy_GO/MBoy_GO/head_1/SpriteRenderer
+  - first:
+      212: 21200020
+    second: MBoy_GO/MBoy_GO/head_2/SpriteRenderer
+  - first:
+      212: 21200022
+    second: MBoy_GO/MBoy_GO/item/SpriteRenderer
+  - first:
+      212: 21200024
+    second: MBoy_GO/MBoy_GO/leg_l/SpriteRenderer
+  - first:
+      212: 21200026
+    second: MBoy_GO/MBoy_GO/leg_r/SpriteRenderer
+  - first:
+      212: 21200028
+    second: MBoy_GO/MBoy_GO/Weapon_stick/SpriteRenderer
+  - first:
+      213: 21300000
+    second: 02df4cf96db89a04d81b83530b390475
+  - first:
+      213: 21300002
+    second: 1d6e713765c77f443abb15aea1d3eb99
+  - first:
+      213: 21300004
+    second: 1d4a7b220eb5f4443927bca38b823077
+  - first:
+      213: 21300006
+    second: dc68eaaa070a2e3448907b0836b25c35
+  - first:
+      213: 21300008
+    second: 9e7a89b9b8f88b843a5bcfeea429629b
+  - first:
+      213: 21300010
+    second: c8a528a7aef58a04c89791d9e837500c
+  - first:
+      213: 21300012
+    second: 8f3785bdf3cc17a4ca10d2b6c19eb158
+  - first:
+      213: 21300014
+    second: 6b312a2bd5de3fa4db9bd6c42c836fcf
+  - first:
+      213: 21300016
+    second: 96e9b1c1a284b7949a1fd6a713ded3f6
+  - first:
+      213: 21300018
+    second: 6bb8a93d43ae8b041985be49ad166695
+  - first:
+      213: 21300020
+    second: b0f6f72a471c70e4a8af25dfdafef44b
+  - first:
+      213: 21300022
+    second: c3c5e9f03cb5cf54ca1d0e606338e466
+  - first:
+      213: 21300024
+    second: b492580905a748242b8e028e6c5a06c3
+  - first:
+      213: 21300026
+    second: 3ea0379463d58a54dbee9edcbb20274c
+  - first:
+      213: 21300028
+    second: 392fc4ec63d675c48a3abe58be4842ce
+  - first:
+      1001: 100100000
+    second: MBoy_GO
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -177,6 +412,7 @@ ScriptedImporter:
     maxTextureSizeSet: 0
     compressionQualitySet: 0
     textureFormatSet: 0
+    applyGammaDecoding: 0
   spriteImportData:
   - name: 
     originalName: 
@@ -190,6 +426,7 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
+    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -213,6 +450,7 @@ ScriptedImporter:
       width: 60
       height: 86
     spriteID: 02df4cf96db89a04d81b83530b390475
+    internalID: 0
     spriteBone:
     - name: bone_10
       position: {x: 44.21614, y: 0.000015710288, z: 0}
@@ -603,8 +841,8 @@ ScriptedImporter:
     uvTransform: {x: 6, y: 429}
   - name: Weapon_stick
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.44984353, y: 0.63468045}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -613,6 +851,7 @@ ScriptedImporter:
       width: 290
       height: 72
     spriteID: 1d6e713765c77f443abb15aea1d3eb99
+    internalID: 0
     spriteBone:
     - name: bone_19
       position: {x: 59.81256, y: 52.211487, z: 0}
@@ -1258,6 +1497,7 @@ ScriptedImporter:
       width: 184
       height: 125
     spriteID: 1d4a7b220eb5f4443927bca38b823077
+    internalID: 0
     spriteBone:
     - name: bone_17
       position: {x: 114.47353, y: -7.0127206, z: 0}
@@ -2050,6 +2290,7 @@ ScriptedImporter:
       width: 175
       height: 181
     spriteID: dc68eaaa070a2e3448907b0836b25c35
+    internalID: 0
     spriteBone:
     - name: bone_3
       position: {x: 71.28935, y: 11.182129, z: 0}
@@ -2448,6 +2689,7 @@ ScriptedImporter:
       width: 175
       height: 181
     spriteID: 9e7a89b9b8f88b843a5bcfeea429629b
+    internalID: 0
     spriteBone:
     - name: bone_3
       position: {x: 71.28935, y: 11.182129, z: 0}
@@ -2857,6 +3099,7 @@ ScriptedImporter:
       width: 175
       height: 181
     spriteID: c8a528a7aef58a04c89791d9e837500c
+    internalID: 0
     spriteBone:
     - name: bone_3
       position: {x: 71.28935, y: 11.182129, z: 0}
@@ -3286,6 +3529,7 @@ ScriptedImporter:
       width: 67
       height: 56
     spriteID: 8f3785bdf3cc17a4ca10d2b6c19eb158
+    internalID: 0
     spriteBone:
     - name: bone_8
       position: {x: 51.96991, y: 41.753113, z: 0}
@@ -3683,6 +3927,7 @@ ScriptedImporter:
       width: 69
       height: 56
     spriteID: 6b312a2bd5de3fa4db9bd6c42c836fcf
+    internalID: 0
     spriteBone:
     - name: bone_2
       position: {x: 26.925156, y: -18.586426, z: 0}
@@ -4129,6 +4374,7 @@ ScriptedImporter:
       width: 81
       height: 128
     spriteID: 96e9b1c1a284b7949a1fd6a713ded3f6
+    internalID: 0
     spriteBone:
     - name: bone_1
       position: {x: 32.957565, y: -4.3148193, z: 0}
@@ -4552,6 +4798,7 @@ ScriptedImporter:
       width: 60
       height: 77
     spriteID: 6bb8a93d43ae8b041985be49ad166695
+    internalID: 0
     spriteBone:
     - name: bone_5
       position: {x: 47.456024, y: 70.74231, z: 0}
@@ -5026,6 +5273,7 @@ ScriptedImporter:
       width: 82
       height: 95
     spriteID: b0f6f72a471c70e4a8af25dfdafef44b
+    internalID: 0
     spriteBone:
     - name: bone_4
       position: {x: 49.281616, y: 69.867294, z: 0}
@@ -5451,6 +5699,7 @@ ScriptedImporter:
       width: 41
       height: 82
     spriteID: c3c5e9f03cb5cf54ca1d0e606338e466
+    internalID: 0
     spriteBone:
     - name: bone_7
       position: {x: 26.67363, y: 66.80719, z: 0}
@@ -5855,6 +6104,7 @@ ScriptedImporter:
       width: 87
       height: 88
     spriteID: b492580905a748242b8e028e6c5a06c3
+    internalID: 0
     spriteBone:
     - name: bone_6
       position: {x: 35.97763, y: 61.211426, z: 0}
@@ -6250,6 +6500,7 @@ ScriptedImporter:
       width: 81
       height: 63
     spriteID: 3ea0379463d58a54dbee9edcbb20274c
+    internalID: 0
     spriteBone:
     - name: bone_12
       position: {x: 10.608887, y: 53.186707, z: 0}
@@ -6613,6 +6864,7 @@ ScriptedImporter:
       width: 41
       height: 80
     spriteID: 392fc4ec63d675c48a3abe58be4842ce
+    internalID: 0
     spriteBone:
     - name: bone_11
       position: {x: 15.491531, y: 57.817932, z: 0}
@@ -7181,6 +7433,10 @@ ScriptedImporter:
   importedTextureWidth: 512
   importedTextureHeight: 1024
   documentSize: {x: 391, y: 510}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
   textureActualWidth: 512
   textureActualHeight: 1024
   spritePackingTag: 
@@ -7398,6 +7654,8 @@ ScriptedImporter:
         height: 86
       spriteId: 02df4cf96db89a04d81b83530b390475
       bones: 0900000008000000020000000c000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 56
         y: 109
@@ -7405,6 +7663,8 @@ ScriptedImporter:
         height: 72
       spriteId: 1d6e713765c77f443abb15aea1d3eb99
       bones: 12000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 139
         y: 342
@@ -7412,6 +7672,8 @@ ScriptedImporter:
         height: 125
       spriteId: 1d4a7b220eb5f4443927bca38b823077
       bones: 100000000f0000000e0000000d0000000c0000001100000002000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 137
         y: 253
@@ -7419,6 +7681,8 @@ ScriptedImporter:
         height: 181
       spriteId: dc68eaaa070a2e3448907b0836b25c35
       bones: 02000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 137
         y: 253
@@ -7426,6 +7690,8 @@ ScriptedImporter:
         height: 181
       spriteId: 9e7a89b9b8f88b843a5bcfeea429629b
       bones: 02000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 137
         y: 253
@@ -7433,6 +7699,8 @@ ScriptedImporter:
         height: 181
       spriteId: c8a528a7aef58a04c89791d9e837500c
       bones: 020000000c00000010000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 115
         y: 208
@@ -7440,6 +7708,8 @@ ScriptedImporter:
         height: 56
       spriteId: 8f3785bdf3cc17a4ca10d2b6c19eb158
       bones: 0700000008000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 163
         y: 208
@@ -7447,6 +7717,8 @@ ScriptedImporter:
         height: 56
       spriteId: 6b312a2bd5de3fa4db9bd6c42c836fcf
       bones: 01000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 155
         y: 157
@@ -7454,6 +7726,8 @@ ScriptedImporter:
         height: 128
       spriteId: 96e9b1c1a284b7949a1fd6a713ded3f6
       bones: 0000000001000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 90
         y: 38
@@ -7461,6 +7735,8 @@ ScriptedImporter:
         height: 77
       spriteId: 6bb8a93d43ae8b041985be49ad166695
       bones: 04000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 119
         y: 92
@@ -7468,6 +7744,8 @@ ScriptedImporter:
         height: 95
       spriteId: b0f6f72a471c70e4a8af25dfdafef44b
       bones: 03000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 219
         y: 38
@@ -7475,6 +7753,8 @@ ScriptedImporter:
         height: 82
       spriteId: c3c5e9f03cb5cf54ca1d0e606338e466
       bones: 06000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 171
         y: 100
@@ -7482,6 +7762,8 @@ ScriptedImporter:
         height: 88
       spriteId: b492580905a748242b8e028e6c5a06c3
       bones: 05000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 239
         y: 150
@@ -7489,6 +7771,8 @@ ScriptedImporter:
         height: 63
       spriteId: 3ea0379463d58a54dbee9edcbb20274c
       bones: 0b000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 221
         y: 188
@@ -7496,46 +7780,12 @@ ScriptedImporter:
         height: 80
       spriteId: 392fc4ec63d675c48a3abe58be4842ce
       bones: 0a0000000b000000
+      parentGroup: 0
+      order: 0
     dimension: {x: 0, y: 0}
-  boneGOs:
-  - go: {fileID: 100032, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 0
-  - go: {fileID: 100034, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 1
-  - go: {fileID: 100036, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 2
-  - go: {fileID: 100060, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 3
-  - go: {fileID: 100062, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 4
-  - go: {fileID: 100064, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 5
-  - go: {fileID: 100066, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 6
-  - go: {fileID: 100050, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 7
-  - go: {fileID: 100052, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 8
-  - go: {fileID: 100054, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 9
-  - go: {fileID: 100056, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 10
-  - go: {fileID: 100058, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 11
-  - go: {fileID: 100038, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 12
-  - go: {fileID: 100040, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 13
-  - go: {fileID: 100042, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 14
-  - go: {fileID: 100044, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 15
-  - go: {fileID: 100046, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 16
-  - go: {fileID: 100048, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 17
-  - go: {fileID: 100068, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
-    index: 18
+    characterGroups: []
   generateGOHierarchy: 0
   textureAssetName: MBoy
   prefabAssetName: MBoy_GO
+  spriteLibAssetName: MBoy Sprite Lib
+  secondarySpriteTextures: []
