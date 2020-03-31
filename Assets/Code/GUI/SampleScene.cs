@@ -21,8 +21,6 @@ public class SampleScene : MonoBehaviour
         m_btnLoad = transform.Find("Grid/Button").GetComponent<Button>();
         m_btnGetRequest = transform.Find("Grid/BtnGetRequest").GetComponent<Button>();
         m_btnPostRequest = transform.Find("Grid/BtnPostRequest").GetComponent<Button>();
-
-
         m_btnLoad.onClick.AddListener(() =>
         {
             //StartCoroutine(Load());
