@@ -67,3 +67,12 @@ MonoBehaviour:
     - m_Name: bignomal
       m_Hash: -1046917148
       m_Sprite: {fileID: 21300028, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
+  - m_Name: hair
+    m_Hash: -1661509351
+    m_CategoryList:
+    - m_Name: nomal
+      m_Hash: -74910078
+      m_Sprite: {fileID: 21300004, guid: c911e53817e378b42a6c8c8cb134dc47, type: 3}
+    - m_Name: bignomal
+      m_Hash: -1046917148
+      m_Sprite: {fileID: 21300006, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}

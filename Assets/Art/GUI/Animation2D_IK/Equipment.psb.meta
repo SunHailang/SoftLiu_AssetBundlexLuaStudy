@@ -1,125 +1,360 @@
 fileFormatVersion: 2
 guid: b20fba97fecf95747819eaa8f253cda3
 ScriptedImporter:
-  fileIDToRecycleName:
-    100000: Equipment_GO/Equipment_GO
-    100002: Equipment_GO/Equipment_GO/arm_l_armour
-    100004: Equipment_GO/Equipment_GO/arm_r_armour
-    100006: Equipment_GO/Equipment_GO/body_armour
-    100008: Equipment_GO/Equipment_GO/foot_l_armour
-    100010: Equipment_GO/Equipment_GO/foot_r_armour
-    100012: Equipment_GO/Equipment_GO/hair_armour
-    100014: Equipment_GO/Equipment_GO/hand_l_armour
-    100016: Equipment_GO/Equipment_GO/hand_r_armour
-    100018: Equipment_GO/Equipment_GO/head_0
-    100020: Equipment_GO/Equipment_GO/head_1
-    100022: Equipment_GO/Equipment_GO/head_2
-    100024: Equipment_GO/Equipment_GO/item
-    100026: Equipment_GO/Equipment_GO/leg_l_armour
-    100028: Equipment_GO/Equipment_GO/leg_r_armour
-    100030: Equipment_GO/Equipment_GO/Weapon_sword
-    100032: Equipment_GO/Equipment_GO/bone_1
-    100034: Equipment_GO/Equipment_GO/bone_1/bone_2
-    100036: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3
-    100038: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_13
-    100040: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_14
-    100042: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_15
-    100044: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_16
-    100046: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_17
-    100048: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_18
-    100050: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8
-    100052: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/bone_9
-    100054: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/bone_9/bone_10
-    100056: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/bone_9/bone_10/bone_19
-    100058: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_11
-    100060: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_11/bone_12
-    100062: Equipment_GO/Equipment_GO/bone_1/bone_4
-    100064: Equipment_GO/Equipment_GO/bone_1/bone_4/bone_5
-    100066: Equipment_GO/Equipment_GO/bone_1/bone_6
-    100068: Equipment_GO/Equipment_GO/bone_1/bone_6/bone_7
-    400000: Equipment_GO/Equipment_GO/Transform
-    400002: Equipment_GO/Equipment_GO/arm_l_armour/Transform
-    400004: Equipment_GO/Equipment_GO/arm_r_armour/Transform
-    400006: Equipment_GO/Equipment_GO/body_armour/Transform
-    400008: Equipment_GO/Equipment_GO/foot_l_armour/Transform
-    400010: Equipment_GO/Equipment_GO/foot_r_armour/Transform
-    400012: Equipment_GO/Equipment_GO/hair_armour/Transform
-    400014: Equipment_GO/Equipment_GO/hand_l_armour/Transform
-    400016: Equipment_GO/Equipment_GO/hand_r_armour/Transform
-    400018: Equipment_GO/Equipment_GO/head_0/Transform
-    400020: Equipment_GO/Equipment_GO/head_1/Transform
-    400022: Equipment_GO/Equipment_GO/head_2/Transform
-    400024: Equipment_GO/Equipment_GO/item/Transform
-    400026: Equipment_GO/Equipment_GO/leg_l_armour/Transform
-    400028: Equipment_GO/Equipment_GO/leg_r_armour/Transform
-    400030: Equipment_GO/Equipment_GO/Weapon_sword/Transform
-    400032: Equipment_GO/Equipment_GO/bone_1/Transform
-    400034: Equipment_GO/Equipment_GO/bone_1/bone_2/Transform
-    400036: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/Transform
-    400038: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_13/Transform
-    400040: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_14/Transform
-    400042: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_15/Transform
-    400044: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_16/Transform
-    400046: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_17/Transform
-    400048: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_18/Transform
-    400050: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/Transform
-    400052: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/bone_9/Transform
-    400054: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/bone_9/bone_10/Transform
-    400056: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/bone_9/bone_10/bone_19/Transform
-    400058: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_11/Transform
-    400060: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_11/bone_12/Transform
-    400062: Equipment_GO/Equipment_GO/bone_1/bone_4/Transform
-    400064: Equipment_GO/Equipment_GO/bone_1/bone_4/bone_5/Transform
-    400066: Equipment_GO/Equipment_GO/bone_1/bone_6/Transform
-    400068: Equipment_GO/Equipment_GO/bone_1/bone_6/bone_7/Transform
-    2800000: Equipment
-    11400000: Equipment_GO/Equipment_GO/arm_l_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400002: Equipment_GO/Equipment_GO/arm_r_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400004: Equipment_GO/Equipment_GO/body_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400006: Equipment_GO/Equipment_GO/foot_l_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400008: Equipment_GO/Equipment_GO/foot_r_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400010: Equipment_GO/Equipment_GO/hair_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400012: Equipment_GO/Equipment_GO/hand_l_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400014: Equipment_GO/Equipment_GO/hand_r_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400016: Equipment_GO/Equipment_GO/head_0/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400018: Equipment_GO/Equipment_GO/head_1/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400020: Equipment_GO/Equipment_GO/head_2/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400022: Equipment_GO/Equipment_GO/item/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400024: Equipment_GO/Equipment_GO/leg_l_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400026: Equipment_GO/Equipment_GO/leg_r_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    11400028: Equipment_GO/Equipment_GO/Weapon_sword/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
-    21200000: Equipment_GO/Equipment_GO/arm_l_armour/SpriteRenderer
-    21200002: Equipment_GO/Equipment_GO/arm_r_armour/SpriteRenderer
-    21200004: Equipment_GO/Equipment_GO/body_armour/SpriteRenderer
-    21200006: Equipment_GO/Equipment_GO/foot_l_armour/SpriteRenderer
-    21200008: Equipment_GO/Equipment_GO/foot_r_armour/SpriteRenderer
-    21200010: Equipment_GO/Equipment_GO/hair_armour/SpriteRenderer
-    21200012: Equipment_GO/Equipment_GO/hand_l_armour/SpriteRenderer
-    21200014: Equipment_GO/Equipment_GO/hand_r_armour/SpriteRenderer
-    21200016: Equipment_GO/Equipment_GO/head_0/SpriteRenderer
-    21200018: Equipment_GO/Equipment_GO/head_1/SpriteRenderer
-    21200020: Equipment_GO/Equipment_GO/head_2/SpriteRenderer
-    21200022: Equipment_GO/Equipment_GO/item/SpriteRenderer
-    21200024: Equipment_GO/Equipment_GO/leg_l_armour/SpriteRenderer
-    21200026: Equipment_GO/Equipment_GO/leg_r_armour/SpriteRenderer
-    21200028: Equipment_GO/Equipment_GO/Weapon_sword/SpriteRenderer
-    21300000: 11179b9464520324fbd7ab13234d9b56
-    21300002: 57a475dd396f20247bc7cf742057c17c
-    21300004: 875c3d085f46f2048a4375987c767409
-    21300006: 35669d0326d31ae4bbb2d16c18e800f5
-    21300008: e45baf04f71c09c4ab29dfa3b692fa7e
-    21300010: 776c47d69d52890439d23d27371f743b
-    21300012: 3d2629193799ec44288ba1a1d2cf7845
-    21300014: 7ffed15990ce1404cbfbd7f72df9ae24
-    21300016: 80e4adb378a51f948819601e7e5e37fa
-    21300018: a75f8d71c159b6e4e921a9e6be7c7fcc
-    21300020: 33b415549ab90ae44aadeee53eefef50
-    21300022: 380e8baa48a0bf84aa80df620519c1b4
-    21300024: b39095a3a6f491c45b941424b208a3ed
-    21300026: 05687e8ec44bf1c47a1aff7e00feb8c1
-    21300028: 785e29aa5a4f4724c9e478a2587b055b
-    100100000: Equipment_GO
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Equipment_GO/Equipment_GO
+  - first:
+      1: 100002
+    second: Equipment_GO/Equipment_GO/arm_l_armour
+  - first:
+      1: 100004
+    second: Equipment_GO/Equipment_GO/arm_r_armour
+  - first:
+      1: 100006
+    second: Equipment_GO/Equipment_GO/body_armour
+  - first:
+      1: 100008
+    second: Equipment_GO/Equipment_GO/foot_l_armour
+  - first:
+      1: 100010
+    second: Equipment_GO/Equipment_GO/foot_r_armour
+  - first:
+      1: 100012
+    second: Equipment_GO/Equipment_GO/hair_armour
+  - first:
+      1: 100014
+    second: Equipment_GO/Equipment_GO/hand_l_armour
+  - first:
+      1: 100016
+    second: Equipment_GO/Equipment_GO/hand_r_armour
+  - first:
+      1: 100018
+    second: Equipment_GO/Equipment_GO/head_0
+  - first:
+      1: 100020
+    second: Equipment_GO/Equipment_GO/head_1
+  - first:
+      1: 100022
+    second: Equipment_GO/Equipment_GO/head_2
+  - first:
+      1: 100024
+    second: Equipment_GO/Equipment_GO/item
+  - first:
+      1: 100026
+    second: Equipment_GO/Equipment_GO/leg_l_armour
+  - first:
+      1: 100028
+    second: Equipment_GO/Equipment_GO/leg_r_armour
+  - first:
+      1: 100030
+    second: Equipment_GO/Equipment_GO/Weapon_sword
+  - first:
+      1: 100032
+    second: Equipment_GO/Equipment_GO/bone_1
+  - first:
+      1: 100034
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2
+  - first:
+      1: 100036
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3
+  - first:
+      1: 100038
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_13
+  - first:
+      1: 100040
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_14
+  - first:
+      1: 100042
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_15
+  - first:
+      1: 100044
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_16
+  - first:
+      1: 100046
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_17
+  - first:
+      1: 100048
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_18
+  - first:
+      1: 100050
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8
+  - first:
+      1: 100052
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/bone_9
+  - first:
+      1: 100054
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/bone_9/bone_10
+  - first:
+      1: 100056
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/bone_9/bone_10/bone_19
+  - first:
+      1: 100058
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_11
+  - first:
+      1: 100060
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_11/bone_12
+  - first:
+      1: 100062
+    second: Equipment_GO/Equipment_GO/bone_1/bone_4
+  - first:
+      1: 100064
+    second: Equipment_GO/Equipment_GO/bone_1/bone_4/bone_5
+  - first:
+      1: 100066
+    second: Equipment_GO/Equipment_GO/bone_1/bone_6
+  - first:
+      1: 100068
+    second: Equipment_GO/Equipment_GO/bone_1/bone_6/bone_7
+  - first:
+      4: 400000
+    second: Equipment_GO/Equipment_GO/Transform
+  - first:
+      4: 400002
+    second: Equipment_GO/Equipment_GO/arm_l_armour/Transform
+  - first:
+      4: 400004
+    second: Equipment_GO/Equipment_GO/arm_r_armour/Transform
+  - first:
+      4: 400006
+    second: Equipment_GO/Equipment_GO/body_armour/Transform
+  - first:
+      4: 400008
+    second: Equipment_GO/Equipment_GO/foot_l_armour/Transform
+  - first:
+      4: 400010
+    second: Equipment_GO/Equipment_GO/foot_r_armour/Transform
+  - first:
+      4: 400012
+    second: Equipment_GO/Equipment_GO/hair_armour/Transform
+  - first:
+      4: 400014
+    second: Equipment_GO/Equipment_GO/hand_l_armour/Transform
+  - first:
+      4: 400016
+    second: Equipment_GO/Equipment_GO/hand_r_armour/Transform
+  - first:
+      4: 400018
+    second: Equipment_GO/Equipment_GO/head_0/Transform
+  - first:
+      4: 400020
+    second: Equipment_GO/Equipment_GO/head_1/Transform
+  - first:
+      4: 400022
+    second: Equipment_GO/Equipment_GO/head_2/Transform
+  - first:
+      4: 400024
+    second: Equipment_GO/Equipment_GO/item/Transform
+  - first:
+      4: 400026
+    second: Equipment_GO/Equipment_GO/leg_l_armour/Transform
+  - first:
+      4: 400028
+    second: Equipment_GO/Equipment_GO/leg_r_armour/Transform
+  - first:
+      4: 400030
+    second: Equipment_GO/Equipment_GO/Weapon_sword/Transform
+  - first:
+      4: 400032
+    second: Equipment_GO/Equipment_GO/bone_1/Transform
+  - first:
+      4: 400034
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/Transform
+  - first:
+      4: 400036
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/Transform
+  - first:
+      4: 400038
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_13/Transform
+  - first:
+      4: 400040
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_14/Transform
+  - first:
+      4: 400042
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_15/Transform
+  - first:
+      4: 400044
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_16/Transform
+  - first:
+      4: 400046
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_17/Transform
+  - first:
+      4: 400048
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_3/bone_18/Transform
+  - first:
+      4: 400050
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/Transform
+  - first:
+      4: 400052
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/bone_9/Transform
+  - first:
+      4: 400054
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/bone_9/bone_10/Transform
+  - first:
+      4: 400056
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_8/bone_9/bone_10/bone_19/Transform
+  - first:
+      4: 400058
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_11/Transform
+  - first:
+      4: 400060
+    second: Equipment_GO/Equipment_GO/bone_1/bone_2/bone_11/bone_12/Transform
+  - first:
+      4: 400062
+    second: Equipment_GO/Equipment_GO/bone_1/bone_4/Transform
+  - first:
+      4: 400064
+    second: Equipment_GO/Equipment_GO/bone_1/bone_4/bone_5/Transform
+  - first:
+      4: 400066
+    second: Equipment_GO/Equipment_GO/bone_1/bone_6/Transform
+  - first:
+      4: 400068
+    second: Equipment_GO/Equipment_GO/bone_1/bone_6/bone_7/Transform
+  - first:
+      28: 2800000
+    second: Equipment
+  - first:
+      114: 11400000
+    second: Equipment_GO/Equipment_GO/arm_l_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400002
+    second: Equipment_GO/Equipment_GO/arm_r_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400004
+    second: Equipment_GO/Equipment_GO/body_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400006
+    second: Equipment_GO/Equipment_GO/foot_l_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400008
+    second: Equipment_GO/Equipment_GO/foot_r_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400010
+    second: Equipment_GO/Equipment_GO/hair_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400012
+    second: Equipment_GO/Equipment_GO/hand_l_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400014
+    second: Equipment_GO/Equipment_GO/hand_r_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400016
+    second: Equipment_GO/Equipment_GO/head_0/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400018
+    second: Equipment_GO/Equipment_GO/head_1/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400020
+    second: Equipment_GO/Equipment_GO/head_2/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400022
+    second: Equipment_GO/Equipment_GO/item/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400024
+    second: Equipment_GO/Equipment_GO/leg_l_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400026
+    second: Equipment_GO/Equipment_GO/leg_r_armour/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      114: 11400028
+    second: Equipment_GO/Equipment_GO/Weapon_sword/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
+  - first:
+      212: 21200000
+    second: Equipment_GO/Equipment_GO/arm_l_armour/SpriteRenderer
+  - first:
+      212: 21200002
+    second: Equipment_GO/Equipment_GO/arm_r_armour/SpriteRenderer
+  - first:
+      212: 21200004
+    second: Equipment_GO/Equipment_GO/body_armour/SpriteRenderer
+  - first:
+      212: 21200006
+    second: Equipment_GO/Equipment_GO/foot_l_armour/SpriteRenderer
+  - first:
+      212: 21200008
+    second: Equipment_GO/Equipment_GO/foot_r_armour/SpriteRenderer
+  - first:
+      212: 21200010
+    second: Equipment_GO/Equipment_GO/hair_armour/SpriteRenderer
+  - first:
+      212: 21200012
+    second: Equipment_GO/Equipment_GO/hand_l_armour/SpriteRenderer
+  - first:
+      212: 21200014
+    second: Equipment_GO/Equipment_GO/hand_r_armour/SpriteRenderer
+  - first:
+      212: 21200016
+    second: Equipment_GO/Equipment_GO/head_0/SpriteRenderer
+  - first:
+      212: 21200018
+    second: Equipment_GO/Equipment_GO/head_1/SpriteRenderer
+  - first:
+      212: 21200020
+    second: Equipment_GO/Equipment_GO/head_2/SpriteRenderer
+  - first:
+      212: 21200022
+    second: Equipment_GO/Equipment_GO/item/SpriteRenderer
+  - first:
+      212: 21200024
+    second: Equipment_GO/Equipment_GO/leg_l_armour/SpriteRenderer
+  - first:
+      212: 21200026
+    second: Equipment_GO/Equipment_GO/leg_r_armour/SpriteRenderer
+  - first:
+      212: 21200028
+    second: Equipment_GO/Equipment_GO/Weapon_sword/SpriteRenderer
+  - first:
+      213: 21300000
+    second: 11179b9464520324fbd7ab13234d9b56
+  - first:
+      213: 21300002
+    second: 57a475dd396f20247bc7cf742057c17c
+  - first:
+      213: 21300004
+    second: 875c3d085f46f2048a4375987c767409
+  - first:
+      213: 21300006
+    second: 35669d0326d31ae4bbb2d16c18e800f5
+  - first:
+      213: 21300008
+    second: e45baf04f71c09c4ab29dfa3b692fa7e
+  - first:
+      213: 21300010
+    second: 776c47d69d52890439d23d27371f743b
+  - first:
+      213: 21300012
+    second: 3d2629193799ec44288ba1a1d2cf7845
+  - first:
+      213: 21300014
+    second: 7ffed15990ce1404cbfbd7f72df9ae24
+  - first:
+      213: 21300016
+    second: 80e4adb378a51f948819601e7e5e37fa
+  - first:
+      213: 21300018
+    second: a75f8d71c159b6e4e921a9e6be7c7fcc
+  - first:
+      213: 21300020
+    second: 33b415549ab90ae44aadeee53eefef50
+  - first:
+      213: 21300022
+    second: 380e8baa48a0bf84aa80df620519c1b4
+  - first:
+      213: 21300024
+    second: b39095a3a6f491c45b941424b208a3ed
+  - first:
+      213: 21300026
+    second: 05687e8ec44bf1c47a1aff7e00feb8c1
+  - first:
+      213: 21300028
+    second: 785e29aa5a4f4724c9e478a2587b055b
+  - first:
+      1001: 100100000
+    second: Equipment_GO
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -177,6 +412,7 @@ ScriptedImporter:
     maxTextureSizeSet: 0
     compressionQualitySet: 0
     textureFormatSet: 0
+    applyGammaDecoding: 0
   spriteImportData:
   - name: 
     originalName: 
@@ -190,6 +426,7 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
+    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -213,6 +450,7 @@ ScriptedImporter:
       width: 63
       height: 87
     spriteID: 11179b9464520324fbd7ab13234d9b56
+    internalID: 0
     spriteBone:
     - name: bone_10
       position: {x: 44.216118, y: -0.000000998466, z: 0}
@@ -624,6 +862,7 @@ ScriptedImporter:
       width: 67
       height: 61
     spriteID: 57a475dd396f20247bc7cf742057c17c
+    internalID: 0
     spriteBone:
     - name: bone_8
       position: {x: 46.96991, y: 41.753113, z: 0}
@@ -1018,6 +1257,7 @@ ScriptedImporter:
       width: 324
       height: 106
     spriteID: 875c3d085f46f2048a4375987c767409
+    internalID: 0
     spriteBone:
     - name: bone_19
       position: {x: 61.812546, y: 63.211487, z: 0}
@@ -1584,8 +1824,8 @@ ScriptedImporter:
     uvTransform: {x: -50, y: 108}
   - name: hair_armour
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.55903864, y: 0.7582528}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1594,6 +1834,7 @@ ScriptedImporter:
       width: 219
       height: 194
     spriteID: 35669d0326d31ae4bbb2d16c18e800f5
+    internalID: 0
     spriteBone:
     - name: bone_3
       position: {x: 98.28935, y: 7.182129, z: 0}
@@ -2241,6 +2482,7 @@ ScriptedImporter:
       width: 175
       height: 181
     spriteID: e45baf04f71c09c4ab29dfa3b692fa7e
+    internalID: 0
     spriteBone:
     - name: bone_3
       position: {x: 71.28937, y: 11.182129, z: 0}
@@ -2651,6 +2893,7 @@ ScriptedImporter:
       width: 175
       height: 181
     spriteID: 776c47d69d52890439d23d27371f743b
+    internalID: 0
     spriteBone:
     - name: bone_3
       position: {x: 71.28935, y: 11.182129, z: 0}
@@ -3061,6 +3304,7 @@ ScriptedImporter:
       width: 175
       height: 181
     spriteID: 3d2629193799ec44288ba1a1d2cf7845
+    internalID: 0
     spriteBone:
     - name: bone_3
       position: {x: 71.28935, y: 11.182129, z: 0}
@@ -3482,6 +3726,7 @@ ScriptedImporter:
       width: 79
       height: 128
     spriteID: 7ffed15990ce1404cbfbd7f72df9ae24
+    internalID: 0
     spriteBone:
     - name: bone_2
       position: {x: 34.92517, y: 32.413605, z: 0}
@@ -3921,6 +4166,7 @@ ScriptedImporter:
       width: 69
       height: 56
     spriteID: 80e4adb378a51f948819601e7e5e37fa
+    internalID: 0
     spriteBone:
     - name: bone_2
       position: {x: 26.925156, y: -18.586426, z: 0}
@@ -4317,6 +4563,7 @@ ScriptedImporter:
       width: 82
       height: 65
     spriteID: a75f8d71c159b6e4e921a9e6be7c7fcc
+    internalID: 0
     spriteBone:
     - name: bone_12
       position: {x: 44.603683, y: 0.000043794193, z: 0}
@@ -4686,6 +4933,7 @@ ScriptedImporter:
       width: 43
       height: 74
     spriteID: 33b415549ab90ae44aadeee53eefef50
+    internalID: 0
     spriteBone:
     - name: bone_11
       position: {x: 18.491531, y: 56.817932, z: 0}
@@ -5209,6 +5457,7 @@ ScriptedImporter:
       width: 78
       height: 88
     spriteID: 380e8baa48a0bf84aa80df620519c1b4
+    internalID: 0
     spriteBone:
     - name: bone_5
       position: {x: 51.456024, y: 70.74231, z: 0}
@@ -5627,6 +5876,7 @@ ScriptedImporter:
       width: 87
       height: 88
     spriteID: b39095a3a6f491c45b941424b208a3ed
+    internalID: 0
     spriteBone:
     - name: bone_4
       position: {x: 52.28163, y: 63.86731, z: 0}
@@ -6042,6 +6292,7 @@ ScriptedImporter:
       width: 62
       height: 81
     spriteID: 05687e8ec44bf1c47a1aff7e00feb8c1
+    internalID: 0
     spriteBone:
     - name: bone_7
       position: {x: 36.673615, y: 67.80719, z: 0}
@@ -6471,6 +6722,7 @@ ScriptedImporter:
       width: 90
       height: 87
     spriteID: 785e29aa5a4f4724c9e478a2587b055b
+    internalID: 0
     spriteBone:
     - name: bone_6
       position: {x: 32.97763, y: 64.211426, z: 0}
@@ -6893,6 +7145,10 @@ ScriptedImporter:
   importedTextureWidth: 512
   importedTextureHeight: 1024
   documentSize: {x: 391, y: 510}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
   textureActualWidth: 512
   textureActualHeight: 1024
   spritePackingTag: 
@@ -7110,6 +7366,8 @@ ScriptedImporter:
         height: 87
       spriteId: 11179b9464520324fbd7ab13234d9b56
       bones: 0900000008000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 120
         y: 208
@@ -7117,6 +7375,8 @@ ScriptedImporter:
         height: 61
       spriteId: 57a475dd396f20247bc7cf742057c17c
       bones: 07000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 54
         y: 98
@@ -7124,6 +7384,8 @@ ScriptedImporter:
         height: 106
       spriteId: 875c3d085f46f2048a4375987c767409
       bones: 12000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 110
         y: 257
@@ -7131,6 +7393,8 @@ ScriptedImporter:
         height: 194
       spriteId: 35669d0326d31ae4bbb2d16c18e800f5
       bones: 02000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 137
         y: 253
@@ -7138,6 +7402,8 @@ ScriptedImporter:
         height: 181
       spriteId: e45baf04f71c09c4ab29dfa3b692fa7e
       bones: 02000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 137
         y: 253
@@ -7145,6 +7411,8 @@ ScriptedImporter:
         height: 181
       spriteId: 776c47d69d52890439d23d27371f743b
       bones: 02000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 137
         y: 253
@@ -7152,6 +7420,8 @@ ScriptedImporter:
         height: 181
       spriteId: 3d2629193799ec44288ba1a1d2cf7845
       bones: 02000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 155
         y: 157
@@ -7159,6 +7429,8 @@ ScriptedImporter:
         height: 128
       spriteId: 7ffed15990ce1404cbfbd7f72df9ae24
       bones: 010000000b0000000a000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 163
         y: 208
@@ -7166,6 +7438,8 @@ ScriptedImporter:
         height: 56
       spriteId: 80e4adb378a51f948819601e7e5e37fa
       bones: 01000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 237
         y: 149
@@ -7173,6 +7447,8 @@ ScriptedImporter:
         height: 65
       spriteId: a75f8d71c159b6e4e921a9e6be7c7fcc
       bones: 0b0000000a000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 218
         y: 189
@@ -7180,6 +7456,8 @@ ScriptedImporter:
         height: 74
       spriteId: 33b415549ab90ae44aadeee53eefef50
       bones: 0a000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 86
         y: 38
@@ -7187,6 +7465,8 @@ ScriptedImporter:
         height: 88
       spriteId: 380e8baa48a0bf84aa80df620519c1b4
       bones: 04000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 116
         y: 98
@@ -7194,6 +7474,8 @@ ScriptedImporter:
         height: 88
       spriteId: b39095a3a6f491c45b941424b208a3ed
       bones: 03000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 209
         y: 37
@@ -7201,6 +7483,8 @@ ScriptedImporter:
         height: 81
       spriteId: 05687e8ec44bf1c47a1aff7e00feb8c1
       bones: 06000000
+      parentGroup: 0
+      order: 0
     - spritePosition:
         x: 174
         y: 97
@@ -7208,46 +7492,12 @@ ScriptedImporter:
         height: 87
       spriteId: 785e29aa5a4f4724c9e478a2587b055b
       bones: 05000000
+      parentGroup: 0
+      order: 0
     dimension: {x: 0, y: 0}
-  boneGOs:
-  - go: {fileID: 100032, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 0
-  - go: {fileID: 100034, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 1
-  - go: {fileID: 100036, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 2
-  - go: {fileID: 100062, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 3
-  - go: {fileID: 100064, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 4
-  - go: {fileID: 100066, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 5
-  - go: {fileID: 100068, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 6
-  - go: {fileID: 100050, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 7
-  - go: {fileID: 100052, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 8
-  - go: {fileID: 100054, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 9
-  - go: {fileID: 100058, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 10
-  - go: {fileID: 100060, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 11
-  - go: {fileID: 100038, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 12
-  - go: {fileID: 100040, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 13
-  - go: {fileID: 100042, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 14
-  - go: {fileID: 100044, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 15
-  - go: {fileID: 100046, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 16
-  - go: {fileID: 100048, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 17
-  - go: {fileID: 100056, guid: b20fba97fecf95747819eaa8f253cda3, type: 3}
-    index: 18
+    characterGroups: []
   generateGOHierarchy: 0
   textureAssetName: Equipment
   prefabAssetName: Equipment_GO
+  spriteLibAssetName: Equipment Sprite Lib
+  secondarySpriteTextures: []
