@@ -1,6 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
+using Unity.Jobs;
 using UnityEngine;
+
+public struct MyJob : IJob
+{
+    public int a;
+    public int b;
+    public NativeArray<int> result;
+    public void Execute()
+    {
+        result[0] = a + b;
+    }
+}
 
 public class BackgroundForCamera : MonoBehaviour
 {
@@ -14,6 +28,26 @@ public class BackgroundForCamera : MonoBehaviour
     private Camera m_camera;
 
     private float m_disOld = 0;
+
+    private void Awake()
+    {
+        NativeArray<int> result = new NativeArray<int>(1, Allocator.TempJob);
+        MyJob job = new MyJob();
+        job.a = 10;
+        job.b = 3;
+        job.result = result;
+
+        JobHandle handle = job.Schedule();
+        handle.Complete();
+        if (handle.IsCompleted)
+        {
+            int sum = result[0];
+            Debug.Log(sum);
+        }
+        
+        result.Dispose();
+    }
+
     private void Start()
     {
         m_width = (float)Screen.width;
@@ -26,6 +60,8 @@ public class BackgroundForCamera : MonoBehaviour
         m_camera.fieldOfView *= 1 + (m_height / m_width - (1080f / 1920));
 
         SetSprite();
+
+
     }
 
     private void Update()
@@ -34,7 +70,7 @@ public class BackgroundForCamera : MonoBehaviour
     }
     public void SetSprite()
     {
-        
+
         float dis = Vector3.Distance(m_camera.transform.position, transform.position);
 
         if (m_disOld == dis && (float)Screen.height == m_height)
