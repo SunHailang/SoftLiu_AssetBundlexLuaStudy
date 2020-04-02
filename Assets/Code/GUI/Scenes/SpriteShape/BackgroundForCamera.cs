@@ -16,6 +16,19 @@ public struct MyJob : IJob
     }
 }
 
+public class ToJsonObject
+{
+    public string name = "Hello";
+    public int age = 18;
+    public string phone = null;
+
+    public override string ToString()
+    {
+        Debug.Log("ToJsonObject To String");
+        return JsonUtility.ToJson(this);
+    }
+}
+
 public class BackgroundForCamera : MonoBehaviour
 {
     public bool m_PreserveAspect = false;
@@ -31,6 +44,10 @@ public class BackgroundForCamera : MonoBehaviour
 
     private void Awake()
     {
+        ToJsonObject obj = new ToJsonObject();
+        Debug.Log(obj.ToString());
+
+
         NativeArray<int> result = new NativeArray<int>(1, Allocator.TempJob);
         MyJob job = new MyJob();
         job.a = 10;
