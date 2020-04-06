@@ -33,6 +33,10 @@ public class BackgroundForCamera : MonoBehaviour
 {
     public bool m_PreserveAspect = false;
 
+    private float m_baseFieldOfView = 60;
+    private float m_baseWidth = 2340f;
+    private float m_baseHeight = 1080;
+
     private float m_width = 0;
     private float m_height = 0;
 
@@ -74,7 +78,7 @@ public class BackgroundForCamera : MonoBehaviour
 
         //m_camera.fieldOfView/2
 
-        m_camera.fieldOfView *= 1 + (m_height / m_width - (1080f / 1920));
+        m_camera.fieldOfView *= 1 + ((m_height / m_width) - (m_baseHeight / m_baseWidth));
 
         SetSprite();
 
@@ -96,7 +100,7 @@ public class BackgroundForCamera : MonoBehaviour
         }
         m_width = (float)Screen.width;
         m_height = (float)Screen.height;
-        m_camera.fieldOfView = 60 * (1 + (m_height / m_width - (1080f / 1920)));
+        m_camera.fieldOfView = m_baseFieldOfView * (1 + ((m_height / m_width) - (m_baseHeight / m_baseWidth)));
 
         m_disOld = dis;
         float angle = m_camera.fieldOfView / 2 * Mathf.PI / 180;
