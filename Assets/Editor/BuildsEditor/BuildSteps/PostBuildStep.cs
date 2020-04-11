@@ -30,10 +30,10 @@ namespace SoftLiu.Build
                 Debug.Log("ExportAsGooleAndroidProject is switched on. Running Android Greadle PostProcess.");
 
                 // Patch the Perforce ridiculuseness
-                string sourcePath = Path.Combine(Application.dataPath, "../JenkinsScripts/AndroidGradleStuff");
+                //string sourcePath = Path.Combine(Application.dataPath, "../JenkinsScripts/AndroidGradleStuff");
                 //string tragetPath = Path.Combine(path, "unityLibrary/");
                 //copy gradle
-                FileUtils.CopyDirectoryFiles(new DirectoryInfo(sourcePath), new DirectoryInfo(path), true, true);
+                //FileUtils.CopyDirectoryFiles(new DirectoryInfo(sourcePath), new DirectoryInfo(path), true, true);
 
             }
         }
