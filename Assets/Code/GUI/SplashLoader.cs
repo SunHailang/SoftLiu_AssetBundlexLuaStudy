@@ -20,6 +20,9 @@ public class SplashLoader : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_textProcess = null;
 
+    [SerializeField]
+    private TextMeshProUGUI m_textDesc = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -395,6 +398,12 @@ public class SplashLoader : MonoBehaviour
         Debug.Log("BtnDecryptRSA_OnClick : " + str);
     }
 
+    public void BtnHandleXML()
+    {
+        //string path = Path.Combine(Application.dataPath, "../Tools/Android");
+        //BuildUtils.HandleAndroidXml(path);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -409,5 +418,37 @@ public class SplashLoader : MonoBehaviour
 
 
         UnityRequestManager.Instance.OnUpdate();
+    }
+
+    public void GetBuildleVersion()
+    {
+        string data = SoftLiuNativeBinding.Instance.GetBuildleVersion();
+        m_textDesc.text += data + "\n";
+    }
+
+    public void GetCurrentAPKPath()
+    {
+        string data = SoftLiuNativeBinding.Instance.GetCurrentAPKPath();
+        m_textDesc.text += data + "\n";
+    }
+
+    public void GetUniqueDeviceIdentifier()
+    {
+        string data = SoftLiuNativeBinding.Instance.GetUniqueDeviceIdentifier();
+        m_textDesc.text += data + "\n";
+    }
+
+    public void GetMACAddress()
+    {
+        string data = SoftLiuNativeBinding.Instance.GetMACAddress();
+        m_textDesc.text += data + "\n";
+    }
+    public void ToggleSpinnerEnable()
+    {
+        SoftLiuNativeBinding.Instance.ToggleSpinner(true, 0, 0);
+    }
+    public void ToggleSpinnerDisable()
+    {
+        SoftLiuNativeBinding.Instance.ToggleSpinner(false, 0, 0);
     }
 }
