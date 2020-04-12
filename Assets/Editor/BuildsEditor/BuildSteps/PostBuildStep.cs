@@ -28,13 +28,14 @@ namespace SoftLiu.Build
             if (EditorUserBuildSettings.exportAsGoogleAndroidProject)
             {
                 Debug.Log("ExportAsGooleAndroidProject is switched on. Running Android Greadle PostProcess.");
+                // handle unityLibrary AndroidManifest.xml
+                BuildUtils.HandleAndroidXml(path);
 
                 // Patch the Perforce ridiculuseness
-                //string sourcePath = Path.Combine(Application.dataPath, "../JenkinsScripts/AndroidGradleStuff");
-                //string tragetPath = Path.Combine(path, "unityLibrary/");
-                //copy gradle
-                //FileUtils.CopyDirectoryFiles(new DirectoryInfo(sourcePath), new DirectoryInfo(path), true, true);
-
+                string gradlePath = Path.Combine(Application.dataPath, "../JenkinsScripts/AndroidGradleStuff");
+                FileUtils.CopyDirectoryFiles(new DirectoryInfo(gradlePath), new DirectoryInfo(path), true, true);
+                string androidPath = Path.Combine(Application.dataPath, "../Tools/Android/Builds");
+                FileUtils.CopyDirectoryFiles(new DirectoryInfo(androidPath), new DirectoryInfo(path), true, true);
             }
         }
     }
