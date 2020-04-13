@@ -36,6 +36,23 @@ namespace SoftLiu.Build
                 FileUtils.CopyDirectoryFiles(new DirectoryInfo(gradlePath), new DirectoryInfo(path), true, true);
                 string androidPath = Path.Combine(Application.dataPath, "../Tools/Android/Builds");
                 FileUtils.CopyDirectoryFiles(new DirectoryInfo(androidPath), new DirectoryInfo(path), true, true);
+
+                string gradleBuildType = "Debug";
+                if (type == BuildType.Preproduction || type == BuildType.Production)
+                {
+                    gradleBuildType = "Release";
+                }
+                try
+                {
+                    // Run APK support
+                    BuildUtils.RunGradleProcess(path, gradleBuildType);
+                    // Bundle support
+                    BuildUtils.RunGradleProcess(path, gradleBuildType, "bundle");
+                }
+                catch (System.Exception error)
+                {
+                    Debug.LogError("Android build python process failed. msg : " + error.Message);
+                }
             }
         }
     }
