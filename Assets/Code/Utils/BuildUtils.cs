@@ -46,15 +46,13 @@ public class BuildUtils
 
     public static void RunGradleProcess(string buildPath, string gradleBuildType, string packageType = "assemble")
     {
-        string directory = Path.Combine(buildPath, Application.productName);
-
         //FixPermission
-        string executable = Path.Combine(directory, "gradlew.bat");
+        string executable = Path.Combine(buildPath, "gradlew.bat");
         string arguments = packageType + gradleBuildType;
         if (System.Environment.OSVersion.Platform == System.PlatformID.MacOSX
             || System.Environment.OSVersion.Platform == System.PlatformID.Unix)
         {
-            executable = Path.Combine(directory, "gradlew");
+            executable = Path.Combine(buildPath, "gradlew");
         }
         // Run Python to start build
         using (Process proc = new Process())
@@ -65,7 +63,7 @@ public class BuildUtils
             procStartInfo.UseShellExecute = false;
             procStartInfo.RedirectStandardOutput = true;
             procStartInfo.RedirectStandardError = true;
-            procStartInfo.WorkingDirectory = directory;
+            procStartInfo.WorkingDirectory = buildPath;
             procStartInfo.CreateNoWindow = true;
             UnityEngine.Debug.Log("RunGradleProcess: " + executable + " " + arguments);
             proc.StartInfo = procStartInfo;
@@ -73,8 +71,8 @@ public class BuildUtils
             string result = proc.StandardOutput.ReadToEnd();
             string error = proc.StandardError.ReadToEnd();
 
-            string gradleLogPath = Path.Combine(buildPath, "/gradle_" + packageType + ".log");
-            string gradleErrorLogPath = "/gradle_error_" + packageType + ".log";
+            string gradleLogPath = Path.Combine(buildPath, "../gradle_" + packageType + ".log");
+            string gradleErrorLogPath = Path.Combine(buildPath, "../gradle_error_" + packageType + ".log");
             if (result.Length > 1)
             {
                 if (File.Exists(gradleLogPath))

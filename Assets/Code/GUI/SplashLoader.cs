@@ -415,7 +415,10 @@ public class SplashLoader : MonoBehaviour
         //time += Time.deltaTime;
         //m_sliderProcess.value = m_process;
         //m_textProcess.SetText(string.Format("{0}%", Mathf.FloorToInt(m_process * 100)));
+        if (true)
+        {
 
+        }
 
         UnityRequestManager.Instance.OnUpdate();
     }
