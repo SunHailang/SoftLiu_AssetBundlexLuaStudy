@@ -22,6 +22,8 @@ public class SplashLoader : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI m_textDesc = null;
+    [SerializeField]
+    private Image m_imageIcon = null;
 
     // Start is called before the first frame update
     void Start()
@@ -404,6 +406,7 @@ public class SplashLoader : MonoBehaviour
         //BuildUtils.HandleAndroidXml(path);
     }
 
+    GameObject m_exitPopup = null;
     // Update is called once per frame
     void Update()
     {
@@ -414,20 +417,41 @@ public class SplashLoader : MonoBehaviour
         //}
         //time += Time.deltaTime;
         //m_sliderProcess.value = m_process;
-        //m_textProcess.SetText(string.Format("{0}%", Mathf.FloorToInt(m_process * 100)));
-#if UNITY_ANDROID && !UNITY_EDITOR
+        m_textProcess.SetText(string.Format("{0}%", Mathf.FloorToInt(m_sliderProcess.value * 100)));
+        //#if UNITY_ANDROID && !UNITY_EDITOR
         if (Input.GetKey(KeyCode.Escape))
         {
             // 返回键
             Debug.Log("KeyCode.Escape Down.");
+            if (m_exitPopup == null)
+            {
+                GameObject prefab = Resources.Load<GameObject>("Popup_ExitGame");
+                m_exitPopup = Instantiate(prefab, transform);
+            }
         }
         if (Input.GetKey(KeyCode.Home))
         {
             // Home键
             Debug.Log("KeyCode.Home Down.");
         }
-#endif
+        //#endif
         UnityRequestManager.Instance.OnUpdate();
+    }
+
+    public void GetIconBytes()
+    {
+        byte[] datas = SoftLiuNativeBinding.Instance.GetIconBytes();
+        Texture2D texture = new Texture2D(100, 100);
+        bool result = texture.LoadImage(datas);
+        if (result)
+        {
+            m_imageIcon.overrideSprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one / 2);
+        }
+        else
+        {
+            Debug.Log("GetIconBytes Error.");
+        }
+        //Application.productName
     }
 
     public void GetBuildleVersion()
