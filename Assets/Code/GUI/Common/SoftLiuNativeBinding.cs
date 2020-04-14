@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class SoftLiuNativeBinding
@@ -48,6 +49,23 @@ public class SoftLiuNativeBinding
         return m_javaObject.Call<string>("GetBuildleVersion");
 #endif
         return "GetBuildleVersion Editor";
+    }
+
+    public string GetAppName()
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR
+        return m_javaObject.Call<string>("GetAppName");
+#endif
+        return Application.productName;
+    }
+
+    public byte[] GetIconBytes()
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR
+        return m_javaObject.Call<byte[]>("GetIconBytes");
+#endif
+        Texture2D datas = Resources.Load<Texture2D>("app_icon");
+        return datas.EncodeToPNG();
     }
 
     public string GetCurrentAPKPath()
