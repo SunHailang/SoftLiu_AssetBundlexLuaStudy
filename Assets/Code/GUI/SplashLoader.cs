@@ -415,11 +415,18 @@ public class SplashLoader : MonoBehaviour
         //time += Time.deltaTime;
         //m_sliderProcess.value = m_process;
         //m_textProcess.SetText(string.Format("{0}%", Mathf.FloorToInt(m_process * 100)));
-        if (true)
+#if UNITY_ANDROID && !UNITY_EDITOR
+        if (Input.GetKey(KeyCode.Escape))
         {
-
+            // 返回键
+            Debug.Log("KeyCode.Escape Down.");
         }
-
+        if (Input.GetKey(KeyCode.Home))
+        {
+            // Home键
+            Debug.Log("KeyCode.Home Down.");
+        }
+#endif
         UnityRequestManager.Instance.OnUpdate();
     }
 
