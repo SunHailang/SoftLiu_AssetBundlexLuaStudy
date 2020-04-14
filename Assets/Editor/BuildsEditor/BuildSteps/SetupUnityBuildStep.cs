@@ -77,9 +77,10 @@ namespace SoftLiu.Build
 
         void AndroidFillKeyStoreInfo()
         {
-            PlayerSettings.keystorePass = "123456";
-            PlayerSettings.keyaliasPass = "softliu";
-            PlayerSettings.Android.keystoreName = "android.keystore";
+            PlayerSettings.Android.keystoreName = "softliu.keystore";
+            PlayerSettings.Android.keystorePass = "123456";
+            PlayerSettings.Android.keyaliasName = "softliu";
+            PlayerSettings.Android.keyaliasPass = "123456";
         }
 
         void CheckAndroidSKDPath()
