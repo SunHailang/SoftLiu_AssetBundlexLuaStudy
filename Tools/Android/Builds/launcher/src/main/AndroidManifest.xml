@@ -14,8 +14,8 @@
 
   <application
       android:label="@string/app_name"
-      android:icon="@mipmap/app_icon"
-      android:roundIcon="@mipmap/app_icon_round"
+      android:icon="@mipmap/ic_luncher"
+      android:roundIcon="@mipmap/ic_luncher_round"
       android:name="com.softliu.hlsun.SoftLiuApplication">
 
     <activity android:name="com.softliu.hlsun.MainActivity">
