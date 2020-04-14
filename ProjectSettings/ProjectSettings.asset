@@ -258,8 +258,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: android.keystore'
-  AndroidKeyaliasName: android.keystore
+  AndroidKeystoreName: '{inproject}: softliu.keystore'
+  AndroidKeyaliasName: softliu
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
