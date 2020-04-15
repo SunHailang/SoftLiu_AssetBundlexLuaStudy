@@ -29,22 +29,6 @@ public class SplashLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //string dir = Application.dataPath + "/../Tools/FilesSignature.exe";
-        //FileInfo info = new FileInfo(dir);
-        //Debug.Log(Path.GetExtension(dir));
-        //Debug.Log(info.Extension);
-        //FileUtils.DeleteDirectory(dir);
-        //Debug.Log("Delete Complete.");
-
-        //BuildVersionData data = new BuildVersionData() { defVersionName = "0.1.1.041500", defVersionCode = 2, defTargetSdkVersion = 28 };
-        //string path = Path.Combine(Application.dataPath, "Misc/buildVersion.json");
-        //if (File.Exists(path)) File.Delete(path);
-        //using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
-        //{
-        //    byte[] bytes = Encoding.UTF8.GetBytes(JsonUtility.ToJson(data));
-        //    fs.Write(bytes, 0, bytes.Length);
-        //}
-
         Debug.Log(Application.persistentDataPath);
 
 

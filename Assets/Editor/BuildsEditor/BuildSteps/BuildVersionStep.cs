@@ -17,6 +17,9 @@ namespace SoftLiu.Build
             BuildVersionWindow.Init((buildData) =>
             {
                 ModifyBuildVersion(buildData);
+
+                string gradlePath = Path.Combine(Application.dataPath, "../JenkinsScripts/AndroidGradleStuff/launcher/build.gradle");
+                BuildUtils.HandleGradleVersion(gradlePath, buildData);
             });
         }
 
@@ -69,16 +72,18 @@ namespace SoftLiu.Build
                         string versionIndex = "00";
                         if (!string.IsNullOrEmpty(versions[3]))
                         {
-                            string indexStr = versions[3].Substring(versions[3].Length - 2);
-                            int result = 0;
-                            int.TryParse(indexStr, out result);
-                            result++;
-                            versionIndex = result.ToString("00");
+                            if (versions[3].Substring(0, 2) == DateTime.Now.Month.ToString("00") && versions[3].Substring(2, 2) == DateTime.Now.Day.ToString("00"))
+                            {
+                                string indexStr = versions[3].Substring(versions[3].Length - 2);
+                                int result = 0;
+                                int.TryParse(indexStr, out result);
+                                result++;
+                                versionIndex = result.ToString("00");
+                            }
                         }
                         sb.Append(string.Format("{0}{1}{2}", DateTime.Now.Month.ToString("00"), DateTime.Now.Day.ToString("00"), versionIndex));
-                        versionData.defVersionName = sb.ToString();
                         if (File.Exists(versionJson)) File.Delete(versionJson);
-                        File.WriteAllText(versionJson, JsonUtility.ToJson(versionData));
+                        File.WriteAllText(versionJson, JsonUtility.ToJson(new BuildVersionData() { defVersionName = sb.ToString(), defVersionCode = versionData.defVersionCode, defTargetSdkVersion = versionData.defTargetSdkVersion }));
                         AssetDatabase.Refresh();
                     }
                 }
@@ -172,9 +177,7 @@ namespace SoftLiu.Build
                 int.TryParse(defVersionCode, out versionCode);
                 int targetSdkVersion = 0;
                 int.TryParse(defTargetSdkVersion, out targetSdkVersion);
-                m_buildVersionData.defVersionName = versionName;
-                m_buildVersionData.defVersionCode = versionCode;
-                m_buildVersionData.defTargetSdkVersion = targetSdkVersion;
+                m_buildVersionData = new BuildVersionData() { defVersionName = versionName, defVersionCode = versionCode, defTargetSdkVersion = targetSdkVersion };
                 Debug.Log("Build Version Data ： " + JsonUtility.ToJson(m_buildVersionData));
                 if (m_callback != null)
                     m_callback(m_buildVersionData);
