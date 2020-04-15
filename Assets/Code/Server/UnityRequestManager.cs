@@ -45,6 +45,33 @@ public class UnityRequestManager
         }
     }
 
+    public void GetServerTime(Action<byte[], string> finished)
+    {
+        string serverTimeUrl = "https://baidu.com";
+        UnityWebRequest request = UnityWebRequest.Get(serverTimeUrl);
+        request.timeout = 15;
+        Action<byte[], string> onGetServerTimeResponseInternal = (byte[] errorStr, string response) =>
+        {
+            if (string.IsNullOrEmpty(response))
+            {
+                Dictionary<string, string> headers = request.GetResponseHeaders();
+                if (headers.ContainsKey("Date"))
+                {
+                    string time = headers["Date"];
+                    finished(null, time);
+                }
+            }
+            else
+            {
+                finished(null, null);
+            }
+        };
+        RequestHandler handler = new RequestHandler(request);
+        handler.onFinished = onGetServerTimeResponseInternal;
+        m_requestList.Add(handler);
+        request.SendWebRequest();
+    }
+
     public void DownloadHandlerBufferGet(string url, Action<byte[], string> finished)
     {
         UnityWebRequest request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET);

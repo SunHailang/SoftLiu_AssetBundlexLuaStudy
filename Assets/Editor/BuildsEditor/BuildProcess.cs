@@ -22,6 +22,7 @@ namespace SoftLiu.Build
             m_steps = new List<IBuildStep>();
             m_steps.Add(new EditorCleanStep());
             m_steps.Add(new SetupUnityBuildStep());
+            m_steps.Add(new BuildVersionStep());
             m_steps.Add(new PlayerBuildStep());
             m_steps.Add(new PostBuildStep());
         }

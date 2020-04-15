@@ -92,7 +92,7 @@ public class SoftLiuNativeBinding
         return "GetMACAddress Editor";
     }
 
-    public void ToggleSpinner(bool enable, float x, float y)
+    public void ToggleSpinner(bool enable, float x = 1f, float y = 1f)
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
         m_javaObject.Call("ToggleSpinner",enable, x, y);
