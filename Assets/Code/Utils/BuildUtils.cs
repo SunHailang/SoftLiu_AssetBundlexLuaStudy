@@ -62,14 +62,19 @@ public class BuildUtils
                 if (infos != null && infos.FirstOrDefault() != null)
                 {
                     var info = infos.FirstOrDefault();
-                    writeLines.Append(string.Format("ext.{0} {1}", info.Name, info.GetValue(gradleData).ToString()));
+                    writeLines.Append(string.Format("ext.{0} {1}\n", info.Name, info.GetValue(gradleData).ToString()));
                 }
                 else
                 {
-                    writeLines.Append(line);
+                    writeLines.Append(line + "\n");
                 }
             }
         }
+        if (File.Exists(gradlePath))
+        {
+            File.Delete(gradlePath);
+        }
+        File.WriteAllText(gradlePath, writeLines.ToString());
     }
 
     public static void RunGradleProcess(string buildPath, string gradleBuildType, string packageType = "assemble")
