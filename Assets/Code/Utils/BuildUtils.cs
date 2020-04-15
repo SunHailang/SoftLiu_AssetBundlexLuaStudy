@@ -1,8 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using SoftLiu.Misc;
+using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
 using UnityEngine;
 
 public class BuildUtils
@@ -41,6 +43,32 @@ public class BuildUtils
         using (StreamWriter sw = new StreamWriter(unityStringXml))
         {
             sw.Write(writeStringLines);
+        }
+    }
+
+    public static void HandleGradleVersion(string gradlePath, BuildVersionData gradleData)
+    {
+        if (!File.Exists(gradlePath) || gradleData == null) return;
+        Type dataType = gradleData.GetType();
+        PropertyInfo[] propertyInfos = dataType.GetProperties();
+
+        StringBuilder writeLines = new StringBuilder();
+        using (StreamReader sr = new StreamReader(File.OpenRead(gradlePath)))
+        {
+            string line = null;
+            while ((line = sr.ReadLine()) != null)
+            {
+                var infos = propertyInfos.Where(item => { return line.Contains("ext." + item.Name); });
+                if (infos != null && infos.FirstOrDefault() != null)
+                {
+                    var info = infos.FirstOrDefault();
+                    writeLines.Append(string.Format("ext.{0} {1}", info.Name, info.GetValue(gradleData).ToString()));
+                }
+                else
+                {
+                    writeLines.Append(line);
+                }
+            }
         }
     }
 

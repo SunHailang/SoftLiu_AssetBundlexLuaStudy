@@ -18,7 +18,7 @@ public class ExitGamePopup : MonoBehaviour
         bool result = texture.LoadImage(datas);
         if (result)
         {
-            m_imageIcon.overrideSprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one / 2);
+            m_imageIcon.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one / 2);
         }
         else
         {

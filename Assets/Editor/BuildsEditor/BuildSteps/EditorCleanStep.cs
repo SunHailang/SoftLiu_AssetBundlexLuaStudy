@@ -8,7 +8,7 @@ namespace SoftLiu.Build
 {
     public class EditorCleanStep : IBuildStep
     {
-        [MenuItem("SoftLiu/CleanConsole")]
+        [MenuItem("SoftLiu/Utility/CleanConsole")]
         public static void CleanConsoleEditor()
         {
             CleanConsole();

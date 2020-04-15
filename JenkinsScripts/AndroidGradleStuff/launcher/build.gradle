@@ -7,6 +7,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar'])
     }
 
+// auto version add
+ext.defVersionName = "0.1.1.041500"
+ext.defVersionCode = 2
+ext.defTargetSdkVersion = 28
+
 android {
     compileSdkVersion 29
     buildToolsVersion '29.0.3'
@@ -18,13 +23,13 @@ android {
 
     defaultConfig {
         minSdkVersion 26
-        targetSdkVersion 28
+        targetSdkVersion defTargetSdkVersion
         applicationId 'com.softliu.hlsun'
         ndk {
             abiFilters 'armeabi-v7a'
         }
-        versionCode 2
-        versionName '0.1.1'
+        versionCode defVersionCode
+        versionName "${defVersionName}"
     }
 
     aaptOptions {

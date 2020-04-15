@@ -12,6 +12,7 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using System.Security.Cryptography;
 using System.Xml.Serialization;
+using SoftLiu.Misc;
 
 public class SplashLoader : MonoBehaviour
 {
@@ -35,13 +36,29 @@ public class SplashLoader : MonoBehaviour
         //FileUtils.DeleteDirectory(dir);
         //Debug.Log("Delete Complete.");
 
-
+        //BuildVersionData data = new BuildVersionData() { defVersionName = "0.1.1.041500", defVersionCode = 2, defTargetSdkVersion = 28 };
+        //string path = Path.Combine(Application.dataPath, "Misc/buildVersion.json");
+        //if (File.Exists(path)) File.Delete(path);
+        //using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+        //{
+        //    byte[] bytes = Encoding.UTF8.GetBytes(JsonUtility.ToJson(data));
+        //    fs.Write(bytes, 0, bytes.Length);
+        //}
 
         Debug.Log(Application.persistentDataPath);
 
 
         m_sliderProcess.value = 0;
         m_textProcess.SetText(string.Format("{0}%", 0));
+    }
+
+    public void BtnGetServerTime()
+    {
+        UnityRequestManager.Instance.GetServerTime((datas, time) =>
+        {
+            Debug.Log("Time: " + time);
+
+        });
     }
 
     public void BtnGetVersion_OnClick()
@@ -445,7 +462,7 @@ public class SplashLoader : MonoBehaviour
         bool result = texture.LoadImage(datas);
         if (result)
         {
-            m_imageIcon.overrideSprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one / 2);
+            m_imageIcon.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one / 2);
         }
         else
         {
@@ -479,7 +496,10 @@ public class SplashLoader : MonoBehaviour
     }
     public void ToggleSpinnerEnable()
     {
-        SoftLiuNativeBinding.Instance.ToggleSpinner(true, 0, 0);
+        int width = Screen.width;
+        int height = Screen.height;
+
+        SoftLiuNativeBinding.Instance.ToggleSpinner(true, 0.995f, 0.995f);
     }
     public void ToggleSpinnerDisable()
     {
