@@ -49,8 +49,9 @@ public class BuildUtils
     public static void HandleGradleVersion(string gradlePath, BuildVersionData gradleData)
     {
         if (!File.Exists(gradlePath) || gradleData == null) return;
-        Type dataType = gradleData.GetType();
-        PropertyInfo[] propertyInfos = dataType.GetProperties();
+
+        Type type = typeof(SoftLiu.Misc.BuildVersionData);
+        PropertyInfo[] propertyInfos = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
         StringBuilder writeLines = new StringBuilder();
         using (StreamReader sr = new StreamReader(File.OpenRead(gradlePath)))
@@ -58,11 +59,11 @@ public class BuildUtils
             string line = null;
             while ((line = sr.ReadLine()) != null)
             {
-                var infos = propertyInfos.Where(item => { return line.Contains("ext." + item.Name); });
+                var infos = propertyInfos.Where(item => { return line.Contains("ext." + item.Name.Substring(2)); });
                 if (infos != null && infos.FirstOrDefault() != null)
                 {
                     var info = infos.FirstOrDefault();
-                    writeLines.Append(string.Format("ext.{0} {1}\n", info.Name, info.GetValue(gradleData).ToString()));
+                    writeLines.Append(string.Format("ext.{0} = {1}\n", info.Name.Substring(2), info.GetValue(gradleData).ToString()));
                 }
                 else
                 {
