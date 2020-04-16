@@ -46,7 +46,7 @@ public class SoftLiuNativeBinding
     public string GetBuildleVersion()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
-        return m_javaObject.Call<string>("GetBuildleVersion");
+        return m_javaObject.Call<string>("GetCurrentAppVersion");
 #endif
         return "GetBuildleVersion Editor";
     }
@@ -54,7 +54,7 @@ public class SoftLiuNativeBinding
     public string GetAppName()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
-        return m_javaObject.Call<string>("GetAppName");
+        return m_javaObject.Call<string>("GetCurrentAppName");
 #endif
         return Application.productName;
     }
@@ -62,7 +62,7 @@ public class SoftLiuNativeBinding
     public byte[] GetIconBytes()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
-        return m_javaObject.Call<byte[]>("GetIconBytes");
+        return m_javaObject.Call<byte[]>("GetCurrentIconBytes");
 #endif
         Texture2D datas = Resources.Load<Texture2D>("app_icon");
         return datas.EncodeToPNG();
@@ -75,17 +75,20 @@ public class SoftLiuNativeBinding
 #endif
         return "GetCurrentAPKPath Editor";
     }
-
+    /// <summary>
+    /// 默认使用 Android ID
+    /// </summary>
+    /// <returns></returns>
     public string GetUniqueDeviceIdentifier()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
-        return m_javaObject.Call<string>("GetUniqueDeviceIdentifier");
+        return m_javaObject.Call<string>("GetAndroidID");
 #endif
         return "GetUniqueDeviceIdentifier Editor";
     }
 
 
-    public void ToggleSpinner(bool enable, float x = 1f, float y = 1f)
+    public void ToggleSpinner(bool enable, float x = 0f, float y = 0f)
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
         m_javaObject.Call("ToggleSpinner",enable, x, y);
