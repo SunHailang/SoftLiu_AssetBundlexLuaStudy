@@ -30,9 +30,20 @@ public class BuildMenuEditor
         Build_Android_Development();
     }
 
-    public static void Build_Android_Development()
+    private static void Build_Android_Development()
     {
         PerformBuild(BuildTarget.Android, BuildType.Development, false);
+    }
+
+    [MenuItem("SoftLiu/Builds/Android/Build Production")]
+    public static void AndroidBuildEditor_Production()
+    {
+        Build_Android_Production();
+    }
+
+    private static void Build_Android_Production()
+    {
+        PerformBuild(BuildTarget.Android, BuildType.Production, false);
     }
 
     #endregion
