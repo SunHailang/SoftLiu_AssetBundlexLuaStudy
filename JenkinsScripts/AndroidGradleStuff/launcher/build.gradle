@@ -8,8 +8,8 @@ dependencies {
     }
 
 // auto version add
-ext.defVersionName = 0.1.1.041505
-ext.defVersionCode = 2
+ext.defVersionName = "0.1.2.041700"
+ext.defVersionCode = 3
 ext.defTargetSdkVersion = 28
 
 android {
