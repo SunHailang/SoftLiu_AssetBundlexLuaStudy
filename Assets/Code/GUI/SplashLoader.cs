@@ -478,7 +478,7 @@ public class SplashLoader : MonoBehaviour
         int width = Screen.width;
         int height = Screen.height;
 
-        SoftLiuNativeBinding.Instance.ToggleSpinner(true, 0.995f, 0.995f);
+        SoftLiuNativeBinding.Instance.ToggleSpinner(true, width - 10, height - 10);
     }
     public void ToggleSpinnerDisable()
     {

@@ -63,7 +63,14 @@ public class BuildUtils
                 if (infos != null && infos.FirstOrDefault() != null)
                 {
                     var info = infos.FirstOrDefault();
-                    writeLines.Append(string.Format("ext.{0} = {1}\n", info.Name.Substring(2), info.GetValue(gradleData).ToString()));
+                    if (info.PropertyType == typeof(string))
+                    {
+                        writeLines.Append(string.Format("ext.{0} = \"{1}\"\n", info.Name.Substring(2), info.GetValue(gradleData).ToString()));
+                    }
+                    else
+                    {
+                        writeLines.Append(string.Format("ext.{0} = {1}\n", info.Name.Substring(2), info.GetValue(gradleData).ToString()));
+                    }
                 }
                 else
                 {
