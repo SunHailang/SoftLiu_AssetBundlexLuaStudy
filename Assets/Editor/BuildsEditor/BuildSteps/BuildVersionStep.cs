@@ -112,11 +112,39 @@ namespace SoftLiu.Build
         private string defVersionCode = "";
         private string defTargetSdkVersion = "";
 
+        private static int m_displayIndex = 0;
+
         public static void Init(System.Action<BuildVersionData> action)
         {
             m_callback = action;
             BuildVersionWindow window = (BuildVersionWindow)EditorWindow.GetWindow(typeof(BuildVersionWindow), false, "Build Version Window", true);
-            //window.autoRepaintOnSceneChange = true;
+            int width = 450;
+            int height = 250;
+            window.maxSize = new Vector2(width, height);
+            window.minSize = new Vector2(width, height);
+            m_displayIndex = PlayerPrefs.GetInt("BuildWindowDisplayIndex", 0);
+            Debug.Log("displays: " + Display.displays.Length);
+            if (m_displayIndex >= Display.displays.Length)
+            {
+                m_displayIndex = 0;
+            }
+            float x = 0;
+            float y = 0;
+            for (int i = 0; i < Display.displays.Length; i++)
+            {
+                if (i < m_displayIndex)
+                {
+                    x += Display.displays[i].renderingWidth;
+                }
+                else if (i == m_displayIndex)
+                {
+                    y = (Display.displays[i].renderingHeight / 2) - (height / 2);
+                    x += (Display.displays[i].renderingWidth / 2) - (width / 2);
+                }
+            }
+            Debug.Log(string.Format("x:{0} -> y:{1} -> displayIndex:{2}", x, y, m_displayIndex));
+            window.position = new Rect(x, y, width, height);
+            window.autoRepaintOnSceneChange = true;
             window.Show();
         }
 
@@ -146,6 +174,12 @@ namespace SoftLiu.Build
 
         private void OnGUI()
         {
+            GUILayout.Space(10);
+            GUILayout.BeginVertical();
+            GUILayout.Label(string.Format("Position: x={0} , y={1}", position.x, position.y));
+            GUILayout.Label("修改版本的 Version 信息，同时写入 gradle 打包文件里。");
+            GUILayout.EndVertical();
+
             GUILayout.Space(50);
             GUILayout.BeginHorizontal();
             GUILayout.Label("defVersionName: ");
@@ -183,6 +217,23 @@ namespace SoftLiu.Build
                     m_callback(m_buildVersionData);
             }
             GUILayout.EndVertical();
+
+            float x = position.x;
+            float sumX = 0;
+            for (int i = 0; i < Display.displays.Length; i++)
+            {
+                sumX += Display.displays[i].renderingWidth;
+                if (sumX > x)
+                {
+                    sumX = 0;
+                    if (m_displayIndex != i)
+                    {
+                        m_displayIndex = i;
+                        PlayerPrefs.SetInt("BuildWindowDisplayIndex", m_displayIndex);
+                    }
+                    continue;
+                }
+            }
         }
     }
 }
