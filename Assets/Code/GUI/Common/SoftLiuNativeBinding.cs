@@ -84,13 +84,6 @@ public class SoftLiuNativeBinding
         return "GetUniqueDeviceIdentifier Editor";
     }
 
-    public string GetMACAddress()
-    {
-#if UNITY_ANDROID && !UNITY_EDITOR
-        return m_javaObject.Call<string>("GetMACAddress");
-#endif
-        return "GetMACAddress Editor";
-    }
 
     public void ToggleSpinner(bool enable, float x = 1f, float y = 1f)
     {

@@ -473,11 +473,6 @@ public class SplashLoader : MonoBehaviour
         m_textDesc.text += data + "\n";
     }
 
-    public void GetMACAddress()
-    {
-        string data = SoftLiuNativeBinding.Instance.GetMACAddress();
-        m_textDesc.text += data + "\n";
-    }
     public void ToggleSpinnerEnable()
     {
         int width = Screen.width;
