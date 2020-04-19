@@ -234,7 +234,7 @@ public class LoginLoader : MonoBehaviour
         else
         {
             // 开始
-            AudioController.Instance.RestartBgSound("bgm");
+            AudioController.Instance.RestartAudio("bgm");
             m_textPausePlay.text = "暂停";
         }
     }
