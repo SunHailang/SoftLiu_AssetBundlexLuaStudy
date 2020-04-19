@@ -144,18 +144,32 @@ public class AudioController : MonoBehaviour
             Debug.LogError("PauseBgSound name: " + name + " Error: " + error.Message);
         }
     }
-    public void RestartBgSound(string name)
+    public void RestartAudio(string name = null)
     {
         try
         {
-            var bgSounds = m_audioBGPlayDataList.Where(bgData => { return bgData.audioName == name; });
-            if (bgSounds != null)
+            if (!string.IsNullOrEmpty(name))
             {
-                var sound = bgSounds.FirstOrDefault();
-                if (sound != null)
+                var bgSounds = m_audioBGPlayDataList.Where(bgData => { return bgData.audioName == name; });
+                if (bgSounds != null)
                 {
-                    m_audioBGVolume = m_audioBGPauseValume;
-                    StartCoroutine(PlayBGSoundIncrease(sound));
+                    var sound = bgSounds.FirstOrDefault();
+                    if (sound != null)
+                    {
+                        m_audioBGVolume = m_audioBGPauseValume;
+                        StartCoroutine(PlayBGSoundIncrease(sound));
+                    }
+                    return;
+                }
+                bgSounds = m_audioEffectsPlayDataList.Where(bgData => { return bgData.audioName == name; });
+                if (bgSounds != null)
+                {
+                    var sound = bgSounds.FirstOrDefault();
+                    if (sound != null)
+                    {
+                        m_audioEffectVolume = m_audioEffectPauseVolume;
+                        sound.audioSource.volume = m_audioEffectVolume;
+                    }
                 }
             }
         }
