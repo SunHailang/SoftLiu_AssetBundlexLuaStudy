@@ -88,11 +88,12 @@ public class SoftLiuNativeBinding
     }
 
 
-    public void ToggleSpinner(bool enable, float x = 0f, float y = 0f)
+    public bool ToggleSpinner(bool enable, float x = 0f, float y = 0f)
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
         m_javaObject.Call("ToggleSpinner",enable, x, y);
+        return false;
 #endif
-        Debug.Log("ToggleSpinner Editor");
+        return enable;
     }
 }

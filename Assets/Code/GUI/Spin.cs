@@ -10,6 +10,6 @@ public class Spin : MonoBehaviour
 
     private void Update()
     {
-        //transform.Rotate(m_alxe);
+        transform.Rotate(m_alxe);
     }
 }

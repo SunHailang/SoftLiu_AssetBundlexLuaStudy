@@ -292,6 +292,7 @@ RectTransform:
   m_Children:
   - {fileID: 98078516}
   - {fileID: 623564599}
+  - {fileID: 1651067538}
   m_Father: {fileID: 1346349131}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -403,7 +404,7 @@ GameObject:
   - component: {fileID: 623564599}
   - component: {fileID: 623564600}
   m_Layer: 5
-  m_Name: UIBootLoader
+  m_Name: BootLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,7 +439,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 623564598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf293ffd32ee6a45b328d4eb0b319eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 29de2928ce83d494e9bf7f48f66f996e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1253921281
@@ -524,7 +525,7 @@ GameObject:
   - component: {fileID: 1346349131}
   - component: {fileID: 1346349132}
   m_Layer: 0
-  m_Name: BootLoader
+  m_Name: SceneRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,7 +545,6 @@ Transform:
   - {fileID: 1937653634}
   - {fileID: 501395828}
   - {fileID: 294517066}
-  - {fileID: 1651067538}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1346349130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29de2928ce83d494e9bf7f48f66f996e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c6ebbd4cfbf4114686a46e063f2cf83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1651067535
@@ -621,10 +621,10 @@ Transform:
   m_GameObject: {fileID: 1651067535}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 540, y: 540, z: 540}
   m_Children: []
-  m_Father: {fileID: 1346349131}
-  m_RootOrder: 3
+  m_Father: {fileID: 294517066}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1828034614
 GameObject:
