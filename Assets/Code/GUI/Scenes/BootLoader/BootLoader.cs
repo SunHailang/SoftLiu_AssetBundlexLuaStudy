@@ -1,18 +1,17 @@
-﻿using System.Collections;
+﻿using SoftLiu.Utils;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BootLoader : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-    }
+        Dictionary<string, object> dic = new Dictionary<string, object>();
+        dic.Add("state", 0);
+        string json = MiniJSON.Serialize(dic);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Dictionary<string, object> dicOut = MiniJSON.Deserialize(json) as Dictionary<string, object>;
+        Debug.Log(dicOut["state"]);
     }
 }

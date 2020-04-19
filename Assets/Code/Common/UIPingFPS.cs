@@ -8,7 +8,7 @@ public class UIPingFPS : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+
     }
 
     private void Start()
