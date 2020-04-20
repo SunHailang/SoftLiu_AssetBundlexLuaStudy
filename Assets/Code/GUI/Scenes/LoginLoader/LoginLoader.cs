@@ -20,11 +20,7 @@ public class LoginLoader : MonoBehaviour
     private TMP_InputField m_inputFieldUserPassword = null;
     [SerializeField]
     private GameObject m_btnLoginSuccess = null;
-    [SerializeField]
-    private TextMeshProUGUI m_textPausePlay = null;
 
-    [SerializeField]
-    private Slider m_sliderAudio = null;
 
     [SerializeField]
     private GameObject m_imageSpinner = null;
@@ -46,7 +42,7 @@ public class LoginLoader : MonoBehaviour
         m_loginCanvas = m_loginTransform.GetComponent<CanvasGroup>();
         m_inputFieldUserName.text = "softliu";
         m_inputFieldUserPassword.text = "123456";
-        m_sliderAudio.value = AudioController.Instance.audioBGVolume;
+        
         AudioController.Instance.PlayBGSound("bgm");
     }
 
@@ -123,11 +119,6 @@ public class LoginLoader : MonoBehaviour
             Debug.Log("PostRequest Download: " + down);
             callback(request.error, down, request.responseCode);
         }
-    }
-
-    public void SliderAudio_OnChanged()
-    {
-        AudioController.Instance.SetAudioBGVolume(m_sliderAudio.value);
     }
 
     public void BtnSure_OnClick()
@@ -223,20 +214,6 @@ public class LoginLoader : MonoBehaviour
         }));
     }
 
-    public void BtnPausePlay_OnClick()
-    {
-        if (m_textPausePlay.text == "暂停")
-        {
-            // 暂停
-            AudioController.Instance.PauseBgSound("bgm");
-            m_textPausePlay.text = "开始";
-        }
-        else
-        {
-            // 开始
-            AudioController.Instance.RestartAudio("bgm");
-            m_textPausePlay.text = "暂停";
-        }
-    }
+    
     #endregion
 }
