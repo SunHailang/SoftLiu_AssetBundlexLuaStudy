@@ -13,6 +13,8 @@ public class AudioPlayData
     private AudioSource m_audioSource = null;
     public AudioSource audioSource { get { return m_audioSource; } }
 
+    public bool audioLoading = false;
+
     public AudioPlayData(AudioClipData clip, AudioSource source, bool loop)
     {
         m_audioClip = clip.soundClip;
