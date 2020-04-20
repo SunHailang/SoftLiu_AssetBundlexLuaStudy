@@ -16,12 +16,31 @@ public class AudioController : MonoBehaviour
     private AudioClipData[] m_soundDataArray = null;
 
     private List<AudioPlayData> m_audioEffectsPlayDataList;
-    private float m_audioEffectVolume = 0.8f;
+    private float _audioEffectVolume = 0.8f;
+    private float m_audioEffectVolume
+    {
+        get { return _audioEffectVolume; }
+        set
+        {
+            _audioEffectVolume = value < 0 ? 0 : value >= 1 ? 1 : value;
+            PlayerPrefs.SetFloat("AudioEffectVolume", _audioEffectVolume);
+        }
+    }
+    public float audioEffectVolume { get { return m_audioEffectVolume; } }
     private float m_audioEffectPauseVolume = 0;
 
     private List<AudioPlayData> m_audioBGPlayDataList;
     private float m_audioBGLastVolume = 0;
-    private float m_audioBGVolume = 0.8f;
+    private float _audioBGVolume = 0.8f;
+    private float m_audioBGVolume
+    {
+        get { return _audioBGVolume; }
+        set
+        {
+            _audioBGVolume = value < 0 ? 0 : value >= 1 ? 1 : value;
+            PlayerPrefs.SetFloat("AudioBGVolume", _audioBGVolume);
+        }
+    }
     public float audioBGVolume { get { return m_audioBGVolume; } }
 
     private float m_audioBGPauseValume = 0;
@@ -62,6 +81,8 @@ public class AudioController : MonoBehaviour
 
     public void SetAudioEffectsVolume(float volume)
     {
+        m_audioEffectVolume = volume;
+        m_audioEffectPauseVolume = m_audioEffectVolume;
         for (int i = m_audioEffectsPlayDataList.Count - 1; i >= 0; i--)
         {
             AudioPlayData data = m_audioEffectsPlayDataList[i];
@@ -71,18 +92,7 @@ public class AudioController : MonoBehaviour
             }
         }
     }
-    public void SetAudioEffectsVolum(float volume)
-    {
-        m_audioEffectVolume = volume;
-        for (int i = m_audioEffectsPlayDataList.Count - 1; i >= 0; i--)
-        {
-            AudioPlayData data = m_audioEffectsPlayDataList[i];
-            if (data != null && data.audioSource != null)
-            {
-                data.audioSource.volume = m_audioEffectVolume;
-            }
-        }
-    }
+
     public void SetAudioBGVolume(float volume)
     {
         m_audioBGVolume = volume;
@@ -94,7 +104,6 @@ public class AudioController : MonoBehaviour
             {
                 m_audioBGVolume = volume;
                 StartCoroutine(PlayBGSoundIncrease(data));
-                //data.audioSource.volume = volume;
             }
         }
     }
@@ -115,28 +124,63 @@ public class AudioController : MonoBehaviour
             AudioPlayData data = new AudioPlayData(sound, source, loop);
             m_audioBGPlayDataList.Add(data);
             source.clip = data.audioClip;
-            source.volume = m_audioBGLastVolume;
+            source.volume = 0;
             StartCoroutine(PlayBGSoundIncrease(data));
             source.loop = loop;
             source.Play();
         }
     }
-    public void PauseBgSound(string name)
+    public void PauseAudio(string name)
     {
         try
         {
-            var bgSounds = m_audioBGPlayDataList.Where(bgData => { return bgData.audioName == name; });
-            if (bgSounds != null)
+            if (string.IsNullOrEmpty(name))
             {
-                var sound = bgSounds.FirstOrDefault();
-                if (sound != null)
+                var bgSounds = m_audioBGPlayDataList.Where(bgData => { return bgData.audioName == name; });
+                if (bgSounds != null)
                 {
-                    m_audioBGPauseValume = m_audioBGVolume;
-                    m_audioBGVolume = 0;
-                    m_audioBGLastVolume = 0;
-                    sound.audioSource.volume = m_audioBGVolume;
-                    if (m_audioBGVolume <= 0) sound.audioSource.mute = true;
+                    var sound = bgSounds.FirstOrDefault();
+                    if (sound != null)
+                    {
+                        m_audioBGPauseValume = m_audioBGVolume;
+                        m_audioBGVolume = 0;
+                        StartCoroutine(PlayBGSoundIncrease(sound));
+                    }
+                    return;
                 }
+                bgSounds = m_audioEffectsPlayDataList.Where(bgData => { return bgData.audioName == name; });
+                if (bgSounds != null)
+                {
+                    var sound = bgSounds.FirstOrDefault();
+                    if (sound != null)
+                    {
+                        m_audioEffectPauseVolume = m_audioEffectVolume;
+                        m_audioEffectVolume = 0;
+                        sound.audioSource.volume = m_audioEffectVolume;
+                        if (m_audioEffectVolume <= 0) sound.audioSource.mute = true;
+                    }
+                }
+            }
+            else
+            {
+                m_audioBGPlayDataList.ForEach(item =>
+                {
+                    if (item.audioSource != null)
+                    {
+                        m_audioBGPauseValume = m_audioBGVolume;
+                        m_audioBGVolume = 0;
+                        StartCoroutine(PlayBGSoundIncrease(item));
+                    }
+                });
+                m_audioBGPlayDataList.ForEach(item =>
+                {
+                    if (item.audioSource != null)
+                    {
+                        m_audioEffectPauseVolume = m_audioEffectVolume;
+                        m_audioEffectVolume = 0;
+                        item.audioSource.volume = m_audioEffectVolume;
+                    }
+                });
             }
         }
         catch (System.Exception error)
@@ -172,6 +216,25 @@ public class AudioController : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                m_audioBGPlayDataList.ForEach(item =>
+                {
+                    if (item.audioSource != null)
+                    {
+                        m_audioBGVolume = m_audioBGPauseValume;
+                        StartCoroutine(PlayBGSoundIncrease(item));
+                    }
+                });
+                m_audioBGPlayDataList.ForEach(item =>
+                {
+                    if (item.audioSource != null)
+                    {
+                        m_audioEffectVolume = m_audioEffectPauseVolume;
+                        item.audioSource.volume = m_audioEffectVolume;
+                    }
+                });
+            }
         }
         catch (System.Exception error)
         {
@@ -180,9 +243,10 @@ public class AudioController : MonoBehaviour
     }
     private IEnumerator PlayBGSoundIncrease(AudioPlayData data)
     {
-        if (m_audioBGVolumeLoading) yield break;
+        if (data.audioLoading) yield break;
         //System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         //sw.Start();
+        data.audioLoading = true;
         if (m_audioBGVolume > 0 && data.audioSource.mute) data.audioSource.mute = false;
         while (Mathf.Abs(m_audioBGVolume - m_audioBGLastVolume) > 0.01f)
         {
@@ -193,9 +257,9 @@ public class AudioController : MonoBehaviour
         //sw.Stop();
         //Debug.Log("statrt time length: " + sw.ElapsedMilliseconds);
         data.audioSource.volume = m_audioBGVolume;
-        if (data.audioSource.volume <= 0) data.audioSource.mute = true;
+        if (m_audioBGVolume <= 0) data.audioSource.mute = true;
         m_audioBGLastVolume = m_audioBGVolume;
-        m_audioBGVolumeLoading = false;
+        data.audioLoading = false;
     }
 
     public void PlayEffectsSound(string name, bool loop = false)
