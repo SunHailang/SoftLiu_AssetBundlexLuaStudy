@@ -34,7 +34,10 @@ public class StateMachine : MonoBehaviour
         return m_stack.Peek() is T;
     }
 
+    public void Push(string name, ScreenState.EntryBehaviour entryBehaviour, params object[] args)
+    {
 
+    }
 
     #endregion
 }

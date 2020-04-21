@@ -10,11 +10,6 @@ namespace SoftLiu.State
 
         private ScreenTracker m_tracker;
 
-        public virtual GameObject screenRoot
-        {
-            get { return m_tracker.m_screenRoot; }
-        }
-
         public enum EntryBehaviour
         {
             None = 0,
@@ -34,7 +29,6 @@ namespace SoftLiu.State
             if (args != null && args.Length > 0)
             {
                 m_scene = args[0].ToString();
-                m_tracker = new ScreenTracker(m_scene);
             }
         }
         public override void OnEnter(State previousState, params object[] args)
@@ -47,13 +41,7 @@ namespace SoftLiu.State
             base.OnUpdate();
             if (m_tracker != null)
             {
-                m_tracker.OnUpdate();
-                if (m_tracker.Loaded && !m_loadedEventSent)
-                {
-                    //EventManager
-                    StateLoaded();
-                    m_loadedEventSent = true;
-                }
+
             }
         }
         public override void OnHardwareBackButton()
