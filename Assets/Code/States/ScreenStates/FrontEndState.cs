@@ -22,6 +22,6 @@ public class FrontEndState : ScreenState
 
     public override void OnHardwareBackButton()
     {
-        base.OnHardwareBackButton();
+        
     }
 }
