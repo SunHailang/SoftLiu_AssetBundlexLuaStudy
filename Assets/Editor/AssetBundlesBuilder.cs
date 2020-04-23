@@ -24,7 +24,11 @@ public class AssetBundlesBuilder
     {
         // 创建文件夹
         string dir = AssetBundlesPath + "/Android";
-        if (!Directory.Exists(dir))
+        if (Directory.Exists(dir))
+        {
+            FileUtils.DeleteDirectory(dir);
+        }
+        else
         {
             Directory.CreateDirectory(dir);
         }
