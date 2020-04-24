@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -11,63 +12,50 @@ public class FrontEnd : MonoBehaviour
     public void BtnSetting_OnClick()
     {
         Debug.Log("FrontEnd Setting Button OnClick.");
-        m_assetBundlesPath = Application.dataPath + "/../Builds/AssetBundles/Android/prefab";
+        
         // load manifest
         string manifestFile = Path.GetFileNameWithoutExtension(m_assetBundlesPath) + ".manifest";
-        StartCoroutine(GetAssetBundle(manifestFile, (request) =>
-        {
-        AssetBundle assetBundle = (request.downloadHandler as DownloadHandlerAssetBundle).assetBundle;
-        UnityEngine.Object obj = assetBundle.LoadAsset("AssetBundleManifest");
-        assetBundle.Unload(false);
-        AssetBundleManifest manifest = obj as AssetBundleManifest;
-        List<AssetBundle> depenceAssetBundles = new List<AssetBundle>(); //用来存放加载出来的依赖资源的AssetBundle
-        string[] dependences = manifest.GetAllDependencies("prefab");
-        Debug.Log("依赖文件个数：" + dependences.Length);
-        int length = dependences.Length;
-        int finishedCount = 0;
-        if (length == 0)
-        {
-            //没有依赖
-
-        }
-        else
-        {
-            //有依赖，加载所有依赖资源
-            for (int i = 0; i < length; i++)
-            {
-                string dependenceAssetName = dependences[i];
-                dependenceAssetName = Path.Combine(Application.dataPath, "/../Builds/AssetBundles/Android/" + dependenceAssetName);
-                GetAssetBundle(dependenceAssetName, (request1) =>
-            {
-                int index = dependenceAssetName.LastIndexOf("/");
-                string assetName = dependenceAssetName.Substring(index + 1);
-                assetName = assetName.Replace(assetTail, "");
-                AssetBundle assetBundle = www.assetBundle;
-                UnityEngine.Object obj = assetBundle.LoadAsset(assetName);
-                //assetBundle.Unload(false);
-                depenceAssetBundles.Add(assetBundle);
-                finishedCount++;
-                if (finishedCount == length)
-                {
-                    //依赖都加载完了
-                    action(depenceAssetBundles);
-                }
-            });
-            }
-        }));
+        StartCoroutine(GetAssetBundle());
     }
 
-    IEnumerator GetAssetBundle(string path, System.Action<UnityWebRequest> callback)
+    IEnumerator GetAssetBundle()
     {
-        UnityWebRequest request = UnityWebRequestAssetBundle.GetAssetBundle(m_assetBundlesPath);
-        yield return request.SendWebRequest();
-        if (request.isHttpError || request.isNetworkError)
+        yield return null;
+        //UnityWebRequest request = UnityWebRequestAssetBundle.GetAssetBundle(m_assetBundlesPath);
+        //yield return request.SendWebRequest();
+        //if (request.isHttpError || request.isNetworkError)
+        //{
+        //    Debug.Log("Error: " + request.error);
+        //}
+        //else
         {
-            Debug.Log("Error: " + request.error);
-        }
-        else
-        {
-            callback(request);
+            //DownloadHandlerAssetBundle bundle = request.downloadHandler as DownloadHandlerAssetBundle;
+            //byte[] data = bundle.data;
+            //m_assetBundlesPath = Application.dataPath + "/../Builds/AssetBundles/Android/Development/" + Application.version + "/sprite";
+            //AssetBundle ab1 = AssetBundle.LoadFromFile(m_assetBundlesPath);
+            //Texture2D sprite1 = ab1.LoadAsset<Texture2D>("app_icon");
+            m_assetBundlesPath = Application.dataPath + "/../Builds/AssetBundles/Android/Development/" + Application.version + "/prefab";
+            AssetBundle ab = AssetBundle.LoadFromFile(m_assetBundlesPath);
+            GameObject[] sprite = ab.LoadAllAssets<GameObject>();
+            if (sprite == null)
+            {
+                Debug.Log("AssetBundle  SpriteRenderer is null.");
+            }
+            else
+            {
+                //Instantiate(sprite, transform);
+                Debug.Log("Length: " + sprite.Length);
+                GameObject exit = sprite.Where(item => { return item.name == "FE_Popup_ExitGame"; }).FirstOrDefault();
+                if (exit == null)
+                {
+                    Debug.Log("FE_Popup_ExitGame is null");
+                }
+                else
+                {
+                    Instantiate(exit, transform);
+                }
+            }
+            ab.Unload(true);
         }
     }
 
