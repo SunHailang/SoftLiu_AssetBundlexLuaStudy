@@ -7,6 +7,7 @@ using Force.Crc32;
 using System;
 using System.Diagnostics;
 using System.Text;
+using SoftLiu.Build;
 
 public struct AssetBundleCRCFileInfo
 {
@@ -56,7 +57,16 @@ public class AssetBundlesBuilder
     [MenuItem("SoftLiu/AssetBundles/Android/Build Development", false, 0)]
     public static void AssetBundles_BuildAndroidDev()
     {
-
+        BuildTarget platform = BuildTarget.Android;
+        BuildType buildType = BuildType.Development;
+        string buildDir = Application.dataPath + "/../Builds/AssetBundles/" + platform.ToString() + "/" + buildType.ToString() + "/" + Application.version;
+        if (Directory.Exists(buildDir))
+        {
+            Directory.Delete(buildDir, true);
+        }
+        Directory.CreateDirectory(buildDir);
+        BuildPipeline.BuildAssetBundles(buildDir, BuildAssetBundleOptions.UncompressedAssetBundle, platform);
+        GenerateCRCFileInfoPlatform(platform, buildType);
     }
 
     [MenuItem("SoftLiu/AssetBundles/ENABLE BUNDLES/Levels", priority = 0)]
@@ -94,12 +104,12 @@ public class AssetBundlesBuilder
         }
         PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildPipeline.GetBuildTargetGroup(EditorUserBuildSettings.activeBuildTarget), defines);
     }
-    public static void GenerateCRCFileInfoPlatform(BuildTarget platform)
+    public static void GenerateCRCFileInfoPlatform(BuildTarget platform, BuildType buildType)
     {
         UnityEngine.Debug.Log("GenerateCRCFileInfo " + platform.ToString());
         try
         {
-            string buildDir = Application.dataPath + "/../AssetBuilds/" + platform.ToString() + "/" + Application.version;
+            string buildDir = Application.dataPath + "/../Builds/AssetBundles/" + platform.ToString() + "/" + buildType.ToString() + "/" + Application.version;
             if (Directory.Exists(buildDir))
             {
                 if (File.Exists(buildDir + "/assetbundles.crc"))
