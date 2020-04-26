@@ -50,7 +50,7 @@ public class UnityRequestManager
         string serverTimeUrl = "https://baidu.com";
         UnityWebRequest request = UnityWebRequest.Get(serverTimeUrl);
         request.timeout = 15;
-        Action<byte[], string> onGetServerTimeResponseInternal = (byte[] errorStr, string response) =>
+        Action<byte[], string, int> onGetServerTimeResponseInternal = (byte[] errorStr, string response, int errorcode) =>
         {
             if (string.IsNullOrEmpty(response))
             {
@@ -72,17 +72,24 @@ public class UnityRequestManager
         request.SendWebRequest();
     }
 
-    public void DownloadHandlerBufferGet(string url, Action<byte[], string> finished)
+    public void DownloadHandlerBufferGet(string url, Action<byte[], string, int> finished, Dictionary<string, object> headers = null)
     {
-        UnityWebRequest request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET);
+        UnityWebRequest request = UnityWebRequest.Get(url);
+        if (headers != null)
+        {
+            foreach (KeyValuePair<string, object> header in headers)
+            {
+                request.SetRequestHeader(header.Key, header.Value.ToString());
+            }
+        }
+        request.downloadHandler = new DownloadHandlerBuffer();
         RequestHandler handler = new RequestHandler(request);
         handler.onFinished = finished;
         m_requestList.Add(handler);
-        request.downloadHandler = new DownloadHandlerBuffer();
         request.SendWebRequest();
     }
 
-    public void DownLoadAssetBundlesZip(string url, Action<byte[], string> finished, Dictionary<string, object> headers = null, Dictionary<string, object> cookies = null)
+    public void DownLoadAssetBundlesZip(string url, Action<byte[], string, int> finished, Dictionary<string, object> headers = null, Dictionary<string, object> cookies = null)
     {
         UnityWebRequest request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET);
         if (headers != null)
@@ -104,7 +111,7 @@ public class UnityRequestManager
         request.SendWebRequest();
     }
 
-    public void RequestVersionCheck(string url, Action<byte[], string> finished, Dictionary<string, object> headers = null, Dictionary<string, object> cookies = null)
+    public void RequestVersionCheck(string url, Action<byte[], string, int> finished, Dictionary<string, object> headers = null, Dictionary<string, object> cookies = null)
     {
         UnityWebRequest request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET);
         if (headers != null)
@@ -126,7 +133,7 @@ public class UnityRequestManager
         request.SendWebRequest();
     }
 
-    public void RequestPost(string url, Action<byte[], string> finished, Dictionary<string, object> headers = null, Dictionary<string, object> cookies = null)
+    public void RequestPost(string url, Action<byte[], string, int> finished, Dictionary<string, object> headers = null, Dictionary<string, object> cookies = null)
     {
         UnityWebRequest request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET);
         if (headers != null)
@@ -155,7 +162,7 @@ public class UnityRequestManager
 
 public class RequestHandler
 {
-    public Action<byte[], string> onFinished = null;
+    public Action<byte[], string, int> onFinished = null;
 
     private UnityWebRequest m_request = null;
 
@@ -170,22 +177,28 @@ public class RequestHandler
         {
             if (m_request == null)
             {
-                onFinished(null, "Request is null.");
+                onFinished(null, "Request is null.", -1);
                 return true;
             }
             if (m_request.isHttpError || m_request.isNetworkError)
             {
-                onFinished(null, m_request.error);
+                onFinished(null, m_request.error, -1);
                 return true;
             }
             if (m_request.isDone)
             {
                 if (m_request.downloadHandler == null)
                 {
-                    onFinished(null, "Request downloadHandler is null.");
+                    onFinished(null, "Request downloadHandler is null.", -1);
                     return true;
                 }
-                onFinished(m_request.downloadHandler.data, null);
+                string dis = m_request.GetResponseHeader("Content-disposition");
+                string fileName = null;
+                if (!string.IsNullOrEmpty(dis))
+                {
+                    fileName = FileUtils.GetContentDispositionByName(dis, "filename");
+                }
+                onFinished(m_request.downloadHandler.data, fileName, 0);
                 return true;
             }
             return false;

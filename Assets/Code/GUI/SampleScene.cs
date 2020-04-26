@@ -29,15 +29,15 @@ public class SampleScene : MonoBehaviour
 
         m_btnGetRequest.onClick.AddListener(() =>
         {
-            UnityRequestManager.Instance.DownloadHandlerBufferGet("http://www.badu.com/", (data, error) =>
+            UnityRequestManager.Instance.DownloadHandlerBufferGet("http://www.badu.com/", (data, info, errorCode) =>
             {
-                if (string.IsNullOrEmpty(error))
+                if (string.IsNullOrEmpty(info))
                 {
                     Debug.Log(data.Length);
                 }
                 else
                 {
-                    Debug.Log(error);
+                    Debug.Log(info);
                 }
             });
 
