@@ -56,7 +56,7 @@ public class SplashLoader : MonoBehaviour
         headers.Add("Content-VersionCheck", "True");
         Dictionary<string, object> cookies = new Dictionary<string, object>();
         cookies.Add("TestGroup", "test");
-        UnityRequestManager.Instance.RequestVersionCheck(m_serverURL, (data, error) =>
+        UnityRequestManager.Instance.RequestVersionCheck(m_serverURL, (data, error, errorCode) =>
         {
             if (string.IsNullOrEmpty(error))
             {

@@ -96,4 +96,12 @@ public class SoftLiuNativeBinding
 #endif
         return enable;
     }
+
+    public string GetPersistentDataPath()
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR
+        return m_javaObject.CallStatic<string>("GetExternalStorageLocation");
+#endif
+        return Application.persistentDataPath;
+    }
 }

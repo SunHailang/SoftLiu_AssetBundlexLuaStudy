@@ -24,7 +24,7 @@ public class AssetBundlesBuilder
     public static void AssetBundles_BuildAndroidProd()
     {
         // 创建文件夹
-        string dir = AssetBundlesPath + "/Android";
+        string dir = AssetBundlesPath + "/Android/" + Application.version;
         if (Directory.Exists(dir))
         {
             FileUtils.DeleteDirectory(dir);
@@ -191,5 +191,29 @@ public class AssetBundlesBuilder
         UnityEngine.Debug.Log("CRC32 " + fileName + ":" + x.ElapsedMilliseconds + "ms <> " + crc.ToString());
 #endif
         return crc;
+    }
+
+
+    public static List<AssetBundleCRCFileInfo> GetCRCFileList(string crcFilePath)
+    {
+        if (!File.Exists(crcFilePath)) return null;
+        List<AssetBundleCRCFileInfo> crcFileList = new List<AssetBundleCRCFileInfo>();
+        using (StreamReader sr = new StreamReader(crcFilePath))
+        {
+            string line = null;
+            while ((line = sr.ReadLine()) != null)
+            {
+                string[] crc = line.Split('|');
+                if (crc.Length == 3)
+                {
+                    AssetBundleCRCFileInfo info = new AssetBundleCRCFileInfo();
+                    info.m_Name = crc[0];
+                    info.m_CRC = Convert.ToUInt32(crc[1]);
+                    info.m_FileSizeBytes = Convert.ToInt64(crc[2]);
+                    crcFileList.Add(info);
+                }
+            }
+        }
+        return crcFileList;
     }
 }
