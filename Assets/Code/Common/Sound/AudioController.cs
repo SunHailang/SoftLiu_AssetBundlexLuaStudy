@@ -45,7 +45,14 @@ public class AudioController : MonoBehaviour
 
     private float m_audioBGPauseValume = 0;
 
-
+    public AudioPlayData m_BGAudioData
+    {
+        get
+        {
+            if (m_audioBGPlayDataList == null || m_audioBGPlayDataList.Count <= 0) return null;
+            return m_audioBGPlayDataList[0];
+        }
+    }
 
     private bool m_audioBGVolumeLoading = false;
 
