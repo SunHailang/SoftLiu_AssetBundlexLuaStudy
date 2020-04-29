@@ -42,7 +42,7 @@ public class LoginLoader : MonoBehaviour
         m_loginCanvas = m_loginTransform.GetComponent<CanvasGroup>();
         m_inputFieldUserName.text = "softliu";
         m_inputFieldUserPassword.text = "123456";
-        
+
         AudioController.Instance.PlayBGSound("bgm");
     }
 
@@ -192,28 +192,4 @@ public class LoginLoader : MonoBehaviour
             m_imageSpinner.SetActive(enable);
         }));
     }
-    #region Test Btn
-    public void BtnAppear_OnClick()
-    {
-        StartCoroutine(StartLoginAnim(true, new Vector3(0, -90, 0), Vector3.zero, () =>
-        {
-            bool enable = SoftLiuNativeBinding.Instance.ToggleSpinner(false);
-            m_imageSpinner.SetActive(enable);
-        }));
-    }
-
-    public void BtnDisappear_OnClick()
-    {
-        StartCoroutine(StartLoginAnim(false, Vector3.zero, new Vector3(0, 90, 0), () =>
-        {
-            float x = 104;
-            float widthX = Screen.width - x;
-            float heigthY = Screen.height - ((x / Screen.width) * Screen.height);
-            bool enable = SoftLiuNativeBinding.Instance.ToggleSpinner(true, widthX, heigthY);
-            m_imageSpinner.SetActive(enable);
-        }));
-    }
-
-    
-    #endregion
 }
