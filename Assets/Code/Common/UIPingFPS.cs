@@ -6,9 +6,14 @@ public class UIPingFPS : MonoBehaviour
 {
     private const string m_IP = "baidu.com";
 
+    private Queue<Ping> m_pingQueue = new Queue<Ping>();
+
+    private float deltaTime = 0;
+    private Queue<float> m_delteTimeQueue = new Queue<float>();
+
     private void Awake()
     {
-
+        
     }
 
     private void Start()
@@ -24,17 +29,12 @@ public class UIPingFPS : MonoBehaviour
 
         float ping = 0;
         int pingFinishCount = 0;
-        int pingNotFinishCount = 0;
-        for (int i = 0; i < m_pingArrary.Length; i++)
+        foreach (var item in m_pingQueue)
         {
-            if (m_pingArrary[i] != null && m_pingArrary[i].isDone)
+            if (item != null && item.isDone)
             {
                 pingFinishCount++;
-                ping += m_pingArrary[i].time;
-            }
-            else
-            {
-                pingNotFinishCount++;
+                ping += item.time;
             }
         }
         if (pingFinishCount > 0)
@@ -47,49 +47,39 @@ public class UIPingFPS : MonoBehaviour
             GUI.Label(new Rect(50, 20, 500, 30), "Ping: " + -1 + "ms");
         }
 
-
         float fps = 0;//1.0f / deltaTime;
         int count = 0;
-        for (int i = 0; i < m_deltaTimeArray.Length; i++)
+        foreach (var item in m_delteTimeQueue)
         {
-            if (m_deltaTimeArray[i] <= 0) continue;
+            if (item <= 0) continue;
             count++;
-            fps += m_deltaTimeArray[i];
+            fps += item;
         }
         fps = fps / count;
         GUI.Label(new Rect(50, 50, 500, 30), "FPS: " + Mathf.CeilToInt(1.0f / fps));
     }
-    private float deltaTime = 0f;
-    private float[] m_deltaTimeArray = new float[20];
-    private int index = 0;
+
     private void Update()
     {
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
-        m_deltaTimeArray[index] = deltaTime;
-        index++;
-        if (index >= m_deltaTimeArray.Length)
+        m_delteTimeQueue.Enqueue(deltaTime);
+        while (m_delteTimeQueue.Count > 20)
         {
-            index = 0;
+            m_delteTimeQueue.Dequeue();
         }
     }
-    private Ping[] m_pingArrary = new Ping[10];
+
     private IEnumerator SendPing()
     {
-        int pingIndex = 0;
         while (true)
         {
             yield return new WaitForSeconds(0.5f);
             Ping ping = new Ping(m_IP);
-            if (m_pingArrary[pingIndex] != null)
+            m_pingQueue.Enqueue(ping);
+            while (m_pingQueue.Count > 10)
             {
-                m_pingArrary[pingIndex].DestroyPing();
-                m_pingArrary[pingIndex] = null;
-            }
-            m_pingArrary[pingIndex] = ping;
-            pingIndex++;
-            if (pingIndex >= m_pingArrary.Length)
-            {
-                pingIndex = 0;
+                Ping pingD = m_pingQueue.Dequeue();
+                pingD.DestroyPing();
             }
         }
     }
