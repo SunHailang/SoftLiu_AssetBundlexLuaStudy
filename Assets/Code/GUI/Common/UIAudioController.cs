@@ -15,7 +15,7 @@ public class UIAudioController : MonoBehaviour
     [SerializeField]
     private Slider m_sliderEffectAudio = null;
     [SerializeField]
-    private GameObject m_AudioBG_Grid = null;
+    private HorizontalLayoutGroup m_AudioBG_Grid = null;
     [SerializeField]
     private Image m_imageAudio = null;
 
@@ -42,6 +42,11 @@ public class UIAudioController : MonoBehaviour
                 image.gameObject.SetActive(true);
                 m_imageTrans.Add(image);
             }
+            RectTransform audioGrid = m_AudioBG_Grid.GetComponent<RectTransform>();
+            RectTransform imageRect = m_imageAudio.GetComponent<RectTransform>();
+            float totalWidth = imageRect.sizeDelta.x * m_imageTrans.Count + m_AudioBG_Grid.spacing * (m_imageTrans.Count - 1);
+            //Debug.Log("totalWidth: " + totalWidth);
+            audioGrid.sizeDelta = new Vector2(totalWidth, imageRect.sizeDelta.y);
         }
     }
 
@@ -49,8 +54,8 @@ public class UIAudioController : MonoBehaviour
     {
         AudioPlayData data = AudioController.Instance.m_BGAudioData;
         if (data == null) return;
-        data.audioSource.GetSpectrumData(progress, 0, FFTWindow.BlackmanHarris);
-       
+        //data.audioSource.GetSpectrumData(progress, 0, FFTWindow.BlackmanHarris);
+        data.audioSource.GetOutputData(progress, 0);
         for (int i = 0; i < m_imageTrans.Count; i++)
         {
             Image image = m_imageTrans[i];
